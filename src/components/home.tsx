@@ -12,18 +12,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
+import { readFileSync } from "fs";
 import { h } from "preact";
 import { GlobalHeader } from "./header";
+import marked from "marked";
+const md = readFileSync(__dirname + "/../../README.md", "utf8");
 
 // tslint:disable-next-line:variable-name
 export const Home = props => {
-  const md = require("../../README.md");
+  console.log("md", md);
   return (
     <div class="index">
       <GlobalHeader />
       <div class="intro flex-row">
         <div class="flex-cell">
-          <div dangerouslySetInnerHTML={{ __html: md }} />
+          <div dangerouslySetInnerHTML={{ __html: marked(md) }} />
         </div>
       </div>
     </div>

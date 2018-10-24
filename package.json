@@ -47,5 +47,9 @@
   },
   "browserslist": [
     ">5%"
-  ]
+  ],
+  "dependencies": {
+    "d3-scale": "^2.1.2",
+    "parcel-plugin-react-markdown": "^0.0.1"
+  }
 }
