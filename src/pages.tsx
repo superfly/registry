@@ -18,7 +18,6 @@
 import { Component, h, render } from "preact";
 import { Home } from "./components/home";
 import * as db from "./db";
-import * as nb from "./notebook_root";
 import * as types from "./types";
 
 export interface Page {
@@ -114,15 +113,9 @@ export function route(pathname: string): Page {
 
 export const pages: Page[] = [
   {
-    title: "Propel ML",
+    title: "deno",
     path: "index.html",
     root: Home,
     route: /^\/(index.html)?$/
   },
-  {
-    title: "Propel Notebook",
-    path: "notebook.html",
-    root: nb.NotebookRoot,
-    route: /^\/notebook/
-  }
 ];

@@ -1,4 +1,4 @@
-## A secure TypeScript runtime built on V8
+# A Secure and Decentralized JavaScript Runtime
 
 - Supports TypeScript 3.0 out of the box. Uses V8 7.0. That is, it's very modern
   JavaScript.
