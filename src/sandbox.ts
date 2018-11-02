@@ -15,19 +15,12 @@
 
 import * as test_internals from "./test_internals";
 
-import { fetchArrayBuffer } from "./fetch";
 import * as matplotlib from "./matplotlib";
 import { Transpiler } from "./nb_transpiler";
 import { setOutputHandler } from "./output_handler";
 import { RPC, WindowRPC } from "./rpc";
 import { describe, InspectorData, InspectorOptions } from "./serializer";
 import { global, globalEval, URL } from "./util";
-
-async function fetchText(url: string) {
-  const ab = await fetchArrayBuffer(url);
-  const enc = new TextDecoder();
-  return enc.decode(ab);
-}
 
 const moduleCache: { [name: string]: any } = Object.create(null);
 
@@ -53,7 +46,7 @@ async function importModule(target: string) {
   }
 
   // Import remote module with AMD.
-  const source = await fetchText(target);
+  const source = "";
   let exports = {};
   global.define = function(dependencies, factory) {
     // TODO handle dependencies.
