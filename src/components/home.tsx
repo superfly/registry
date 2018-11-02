@@ -14,21 +14,45 @@
  */
 import { readFileSync } from "fs";
 import { h } from "preact";
+import { UserMenu } from "./menu";
 import { GlobalHeader } from "./header";
 import marked from "marked";
-const md = readFileSync(__dirname + "/../../README.md", "utf8");
 
 // tslint:disable-next-line:variable-name
 export const Home = props => {
-  console.log("md", md);
   return (
     <div class="index">
-      <GlobalHeader />
-      <div class="intro flex-row">
-        <div class="flex-cell">
-          <div dangerouslySetInnerHTML={{ __html: marked(md) }} />
+      <GlobalHeader>
+        <UserMenu userInfo={props.userInfo} />
+      </GlobalHeader>
+      
+        <div class="flex-row">
+          <div class="flex-cell">
+            <h2>Create Package</h2>
+            <b>Package Name</b> <br/>
+            No spaces. No unicode, use ascii.
+               Use underscores instead of dash.
+          </div>
         </div>
-      </div>
+        <div class="flex-row">
+          <div class="flex-cell">
+            <input type="text" />
+          </div>
+        </div>
+
+
+        <div class="flex-row">
+          <div class="flex-cell">
+            <b>Link to github repo</b>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-cell">
+            <input type="text" />
+            <br/>
+            <button>Create</button>
+          </div>
+        </div>
     </div>
   );
 };

@@ -542,6 +542,14 @@ header {
   }
 }
 
+.index {
+  input {
+    flex: 1 0 auto;
+    align-self: center;
+    height: $size1;
+  }
+}
+
 .dropdown {
   position: relative;
 
