@@ -12,11 +12,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-import { readFileSync } from "fs";
 import { h } from "preact";
 import { UserMenu } from "./menu";
 import { GlobalHeader } from "./header";
-import marked from "marked";
 
 // tslint:disable-next-line:variable-name
 export const Home = props => {

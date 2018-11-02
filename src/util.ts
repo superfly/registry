@@ -107,27 +107,6 @@ export function assertEqual(actual: any, expected: any, msg = null) {
   }
 }
 
-// Provides a map with default value 0.
-export class CounterMap {
-  private map = new Map<number, number>();
-
-  get(id: number): number {
-    return this.map.has(id) ? this.map.get(id) : 0;
-  }
-
-  keys(): number[] {
-    return Array.from(this.map.keys());
-  }
-
-  inc(id: number): void {
-    this.map.set(id, this.get(id) + 1);
-  }
-
-  dec(id: number): void {
-    this.map.set(id, this.get(id) - 1);
-  }
-}
-
 // Like setTimeout but with a promise.
 export function delay(t: number): Promise<void> {
   return new Promise(function(resolve) {
@@ -167,70 +146,4 @@ export function randomString(): string {
     .toString(36)
     .padEnd(12, "0")
     .slice(2, 12);
-}
-
-// The spec says that the maximum length of an array is UINT32_MAX, or 2**32-1.
-// Since the array length always equals one plus the key of the last element,
-// the maximum valid key is UINT32_MAX-1 or 2**32-2.
-const maxNumericalKey = 2 ** 32 - 2;
-
-// Array, string, TypedArray indexes are actually strings, and not numbers.
-// However properties keyed by these "numerical strings" do behave differently.
-// This function returns true when a string (key looks like be a numerical key.
-export function isNumericalKey(key: string): boolean {
-  return (
-    Number(key) <= maxNumericalKey && (key === "0" || /^[1-9]\d*$/.test(key))
-  );
-}
-
-export function isTensor(value: any): boolean {
-  return value &&
-         typeof value === "object" &&
-         typeof value.dtype === "string" &&
-         typeof value.dataSync === "function" &&
-         Array.isArray(value.shape);
-}
-
-export function tmpdir(): string {
-  return process.env.TEMP || process.env.TMPDIR || "/tmp";
-}
-
-// TODO maybe share this with nb_transpiler.getEntryPoint().
-export function captureStackTrace(error?: Error): string {
-  let stack: string;
-  if (error) {
-    stack = error.stack;
-  } else {
-    try {
-      throw new Error();
-    } catch (e) {
-      stack = e.stack;
-    }
-  }
-  return stack;
-}
-
-export function formatImageName(filename: string, i?: number) {
-  if (typeof filename !== "string") {
-    const random = randomString().substr(0, 6);
-    filename = `propel-${random}`;
-  }
-  // Force a valid file extension at the end of `filename` (default to .png)
-  const validExtensions = [".png", ".jpg", ".jpeg"];
-  const tmp = filename.toLowerCase();
-  let insert = true;
-  for (const ext of validExtensions) {
-    if (tmp.endsWith(ext)) {
-      insert = false;
-      break;
-    }
-  }
-  if (insert) filename += ".png";
-
-  if (typeof i === "number") {
-    const index = filename.lastIndexOf(".");
-    return filename.slice(0, index) + `-${i}` + filename.slice(index);
-  }
-
-  return filename;
 }

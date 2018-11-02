@@ -39,23 +39,6 @@ test(async function util_equal() {
   );
 });
 
-test(async function util_counterMap() {
-  const m = new util.CounterMap();
-  assertEqual(m.get(0), 0);
-  m.inc(0);
-  m.inc(0);
-  assertEqual(m.get(0), 2);
-  assertEqual(m.get(1), 0);
-  m.inc(1);
-  assertEqual(m.get(1), 1);
-  m.dec(0);
-  m.inc(1);
-  assertEqual(m.get(0), 1);
-  assertEqual(m.get(1), 2);
-  const k = m.keys();
-  console.log(k);
-});
-
 test(async function util_randomString() {
   const seen = new Set<string>();
   for (let i = 0; i < 100; i++) {
@@ -65,44 +48,4 @@ test(async function util_randomString() {
     assert(!seen.has(s), "should be unique");
     seen.add(s);
   }
-});
-
-test(async function util_isNumericalKey() {
-  assertEqual(util.isNumericalKey("0"), true);
-  assertEqual(util.isNumericalKey("1"), true);
-  assertEqual(util.isNumericalKey("1000"), true);
-  assertEqual(util.isNumericalKey("4294967294"), true); // Max allowed.
-  assertEqual(util.isNumericalKey("4294967295"), false); // Out of range.
-  assertEqual(util.isNumericalKey("-1"), false);
-  assertEqual(util.isNumericalKey("00"), false);
-  assertEqual(util.isNumericalKey("01"), false);
-  assertEqual(util.isNumericalKey("0.000001"), false);
-  assertEqual(util.isNumericalKey("0 "), false);
-  assertEqual(util.isNumericalKey(" 2"), false);
-  assertEqual(util.isNumericalKey("1a"), false);
-  assertEqual(util.isNumericalKey("text"), false);
-  assertEqual(util.isNumericalKey("false"), false);
-  assertEqual(util.isNumericalKey(""), false);
-});
-
-test(async function util_captureStackTrace() {
-  const s = util.captureStackTrace();
-  assert(/util_captureStackTrace/.test(s));
-});
-
-test(async function util_formatImageName() {
-  assertEqual(util.formatImageName("a"), "a.png");
-  assertEqual(util.formatImageName("a.png"), "a.png");
-  assertEqual(util.formatImageName("a.jpg"), "a.jpg");
-  assertEqual(util.formatImageName("a.png.jpg"), "a.png.jpg");
-  assertEqual(util.formatImageName("a", 1), "a-1.png");
-  assertEqual(util.formatImageName("a.jpg", 2), "a-2.jpg");
-  assertEqual(util.formatImageName("a.jpeg", 3), "a-3.jpeg");
-  assertEqual(
-    util.formatImageName("name with spaces and /@!#$", 2),
-    "name with spaces and /@!#$-2.png"
-  );
-  const name = util.formatImageName(undefined, 5);
-  assert(name.startsWith("propel-"));
-  assert(name.endsWith("-5.png"));
 });
