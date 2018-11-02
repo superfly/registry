@@ -2,7 +2,6 @@
 //  https://en.bem.info/methodology/
 
 @import './normalize.scss';
-@import './codemirror.scss';
 //@import './theme_dark.scss';
 @import './theme_light.scss';
 @import './syntax.scss';
@@ -257,96 +256,6 @@ header {
 
   & p {
     margin: 4px auto;
-  }
-}
-
-.inspector,
-.inspector__content {
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.inspector__list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 0 0 1.25em;
-}
-
-.inspector__prop-list {
-  padding-left: 1.75em;
-}
-
-.inspector__li {
-  display: flex;
-}
-
-.inspector__toggle {
-  display: inline-block;
-  margin: 0 0 0 -1.25em;
-  width: 1.25em;
-  flex-shrink: 0;
-  color: $base7;
-
-  &::after {
-    content: "◢";
-  }
-}
-
-.inspector__content--pre {
-  white-space: pre;
-}
-
-.inspector__prop--hidden > .inspector__content > .inspector__key {
-  opacity: 0.5;
-}
-
-.inspector--show-if-collapsed {
-  display: none;
-}
-
-.inspector__li:not(.inspector__li--expanded) {
-  // Rules that apply to collapsed subtrees go here.
-  .inspector--show-if-expanded {
-    display: none;
-  }
-
-  .inspector--show-if-collapsed {
-    display: initial;
-  }
-
-  .inspector__toggle::after {
-    content: "▷";
-  }
-
-  .inspector__root + .inspector__root::before {
-    content: " ";
-  }
-
-  .inspector__prop:not(.inspector__prop--hidden) + .inspector__prop::before {
-    content: ", ";
-  }
-
-  .inspector__content:not(.inspector__content--pre) {
-    white-space: nowrap;
-  }
-
-  .inspector__list {
-    padding: 0;
-
-    &,
-    .inspector__li,
-    .inspector__content {
-      display: inline;
-      white-space: nowrap;
-    }
-
-    .inspector--show-if-parent-expanded,
-    .inspector__prop--hidden,
-    .inspector__toggle {
-      display: none;
-    }
   }
 }
 

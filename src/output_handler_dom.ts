@@ -19,7 +19,6 @@
 
 import { h, render } from "preact";
 import * as vega from "vega-lib";
-import { Inspector } from "./components/inspector";
 import {
   InspectorData,
   OutputHandler,
@@ -133,10 +132,6 @@ export class OutputHandlerDOM implements OutputHandler {
       element.appendChild(el);
       return;
     }
-    try {
-      const elem = h(Inspector, data);
-      render(elem, this.element);
-    } catch (e) {}
   }
 
   downloadProgress(progress: Progress) {
