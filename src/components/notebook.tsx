@@ -23,7 +23,6 @@ import * as db from "../db";
 import { OutputHandlerDOM } from "../output_handler_dom";
 import * as types from "../types";
 import { createResolvable, IS_WEB, randomString, Resolvable } from "../util";
-import { createRPCHandler, VM } from "../vm";
 import { Cell, drainExecuteQueue, OUTPUT_ID_PREFIX } from "./cell";
 import { docTitle } from "./common";
 import { UserTitle } from "./user_title";
@@ -64,21 +63,12 @@ export class Notebook extends Component<NotebookProps, NotebookState> {
   cellRefs = new Map<string, Cell>();
   // Save current focused Cell to be used in focusNextCell.
   active: string;
-  vm: VM;
   // Check if user opend this notebook for first time.
   newNotebook: boolean;
   isReady: Resolvable<void> = createResolvable();
 
-  componentWillMount() {
-    const rpcHandler = createRPCHandler((id: string) =>
-      this.state.outputHandlers.get(id)
-    );
-    this.vm = new VM(rpcHandler);
-  }
-
   componentWillUnmount() {
     document.title = DEFAULT_TITLE;
-    this.vm.destroy();
   }
 
   clearOutput(cellId: string) {
@@ -149,7 +139,6 @@ export class Notebook extends Component<NotebookProps, NotebookState> {
 
   async onRun(cellId: string) {
     this.save();
-    await this.vm.exec(this.state.codes.get(cellId), cellId);
   }
 
   onFocus(cellId: string) {
