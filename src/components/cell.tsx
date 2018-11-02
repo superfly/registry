@@ -22,7 +22,6 @@
 
 import { Component, h } from "preact";
 import { delay } from "../util";
-import { CodeMirrorComponent } from "./codemirror";
 
 export const cellExecuteQueue: Cell[] = [];
 
@@ -56,7 +55,6 @@ export interface CellState {
 }
 
 export class Cell extends Component<CellProps, CellState> {
-  cm: CodeMirrorComponent;
   parentDiv: Element;
   outputDiv: Element;
   state = {
@@ -65,8 +63,7 @@ export class Cell extends Component<CellProps, CellState> {
   };
 
   get code(): string {
-    if (!this.cm) return this.props.code;
-    return this.cm.code;
+    return "";
   }
 
   clickedRun() {
@@ -143,7 +140,6 @@ export class Cell extends Component<CellProps, CellState> {
 
   async focus() {
     await delay(100);
-    this.cm.focus();
     // FIXME calling cm.focus does not fire onFocus event.
     // Do nothing when component is not mounted.
     if (!this.parentDiv) return;
@@ -151,7 +147,6 @@ export class Cell extends Component<CellProps, CellState> {
   }
 
   blur() {
-    this.cm.blur();
     // Do nothing when component is not mounted.
     if (!this.parentDiv) return;
     this.parentDiv.classList.remove("notebook-cell-focus");
@@ -215,21 +210,6 @@ export class Cell extends Component<CellProps, CellState> {
         id={`cell-${id}`}
       >
         <div class={inputClass.join(" ")}>
-          <CodeMirrorComponent
-            id={id ? String(id) : undefined}
-            ref={ref => {
-              this.cm = ref;
-            }}
-            code={code}
-            onFocus={this.onFocus.bind(this)}
-            onBlur={this.onBlur.bind(this)}
-            onChange={this.onChange.bind(this)}
-            onAltEnter={this.runCellAndInsertBelow.bind(this)}
-            onShiftEnter={this.runCellAndFocusNext.bind(this)}
-            onCtrlEnter={() => {
-              this.run();
-            }}
-          />
           {deleteButton}
           {runButton}
         </div>
