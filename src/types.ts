@@ -42,3 +42,16 @@ export interface NbInfo {
   nbId: string;
   doc: NotebookDoc;
 }
+
+export interface Package {
+  title: string;
+  owner: UserInfo;
+  url: string;
+  updated: Date;
+  created: Date;
+}
+
+export interface PackageInfo {
+  pkgId: string;
+  pkg: Package;
+}

@@ -19,7 +19,6 @@
  */
 
 import { Component, h } from "preact";
-import * as db from "../db";
 import * as types from "../types";
 import { Avatar } from "./avatar";
 import { docTitle } from "./common";
@@ -38,7 +37,7 @@ export class NotebookPreview extends Component<NotebookPreviewProps, {}> {
   render() {
     const { notebook: { doc }, showTitle } = this.props;
     const { title } = doc;
-    const code = db.getInputCodes(doc).join("\n\n");
+    const code = "";
     return (
       <a onClick={this.onClick.bind(this)}>
         <li>

@@ -14,21 +14,19 @@
  */
 
 // This file contains routines for accessing the firebase database (firestore).
-// This is used to save and restore notebooks.
+// This is used to save and restore packages.
 // These routines are run only on the browser.
-import { NbInfo, NotebookDoc, UserInfo } from "./types";
+import { Package, PackageInfo, UserInfo } from "./types";
 import { assert } from "./util";
 
 // tslint:disable:no-reference
 /// <reference path="firebase.d.ts" />
 
 export interface Database {
-  getDoc(nbId): Promise<NotebookDoc>;
-  updateDoc(nbId: string, doc: NotebookDoc): Promise<void>;
-  clone(existingDoc: NotebookDoc): Promise<string>;
-  create(): Promise<string>;
-  queryProfile(uid: string, limit: number): Promise<NbInfo[]>;
-  queryLatest(): Promise<NbInfo[]>;
+  getPackage(pkgId: string): Promise<Package>;
+  updatePackage(pkgId: string, pkg: Package): Promise<void>;
+  create(title: string, url: string): Promise<string>;
+  queryLatest(): Promise<PackageInfo[]>;
   signIn(): void;
   signOut(): void;
   subscribeAuthChange(cb: (user: UserInfo) => void): UnsubscribeCb;
@@ -40,7 +38,7 @@ export interface UnsubscribeCb {
 
 // These are shared by all functions and are lazily constructed by lazyInit.
 let db: firebase.firestore.Firestore;
-let nbCollection: firebase.firestore.CollectionReference;
+let pkgCollection: firebase.firestore.CollectionReference;
 let auth: firebase.auth.Auth;
 const firebaseConfig = {
   apiKey: "AIzaSyAc5XVKd27iXdGf1ZEFLWudZbpFg3nAwjQ",
@@ -52,107 +50,79 @@ const firebaseConfig = {
 };
 
 class DatabaseFB implements Database {
-  async getDoc(nbId): Promise<NotebookDoc> {
+  async getPackage(pkgId: string): Promise<Package> {
     // We have one special doc that is loaded from memory, used for testing and
     // debugging.
-    if (nbId === "default") {
-      return defaultDoc;
+    if (pkgId === "default") {
+      return defaultPackage;
     }
-    const docRef = nbCollection.doc(nbId);
+    const docRef = pkgCollection.doc(pkgId);
     const snap = await docRef.get();
     if (snap.exists) {
-      return snap.data() as NotebookDoc;
+      return snap.data() as Package;
     } else {
-      throw Error(`Notebook does not exist ${nbId}`);
+      throw Error(`Package does not exist ${pkgId}`);
     }
   }
 
   // Caller must catch errors.
-  async updateDoc(nbId: string, doc: NotebookDoc): Promise<void> {
-    if (nbId === "default") return; // Don't save the default doc.
-    if (!ownsDoc(auth.currentUser, doc)) return;
-    const docRef = nbCollection.doc(nbId);
+  async updatePackage(pkgId: string, doc: Package): Promise<void> {
+    if (pkgId === "default") return; // Don't save the default doc.
+    if (!ownsPackage(auth.currentUser, doc)) return;
+    const docRef = pkgCollection.doc(pkgId);
     await docRef.update({
-      cells: doc.cells,
       title: doc.title || "",
-      updated: firebase.firestore.FieldValue.serverTimestamp()
+      updated: firebase.firestore.FieldValue.serverTimestamp(),
+      url: doc.url || ""
     });
   }
 
-  // Attempts to clone the given notebook given the Id.
-  // Promise resolves to the id of the new notebook which will be owned by the
-  // current user.
-  async clone(existingDoc: NotebookDoc): Promise<string> {
-    lazyInit();
-    const u = auth.currentUser;
-    if (!u) throw Error("Cannot clone. User must be logged in.");
-
-    if (existingDoc.cells.length === 0) {
-      throw Error("Cannot clone empty notebook.");
-    }
-
-    const newDoc = {
-      cells: existingDoc.cells,
-      created: firebase.firestore.FieldValue.serverTimestamp(),
-      owner: {
-        displayName: u.displayName,
-        photoURL: u.photoURL,
-        uid: u.uid
-      },
-      title: "",
-      updated: firebase.firestore.FieldValue.serverTimestamp()
-    };
-    console.log({ newDoc });
-    const docRef = await nbCollection.add(newDoc);
-    return docRef.id;
-  }
-
-  async create(): Promise<string> {
+  async create(title: string, url: string): Promise<string> {
     lazyInit();
     const u = auth.currentUser;
     if (!u) return "anonymous";
 
     const newDoc = {
-      cells: [],
       created: firebase.firestore.FieldValue.serverTimestamp(),
       owner: {
         displayName: u.displayName,
         photoURL: u.photoURL,
         uid: u.uid
       },
-      title: "",
-      updated: firebase.firestore.FieldValue.serverTimestamp()
+      title,
+      updated: firebase.firestore.FieldValue.serverTimestamp(),
+      url
     };
     console.log({ newDoc });
-    const docRef = await nbCollection.add(newDoc);
+    const docRef = await pkgCollection.add(newDoc);
     return docRef.id;
   }
 
-  async queryLatest(): Promise<NbInfo[]> {
+  async queryLatest(): Promise<PackageInfo[]> {
     lazyInit();
-    const query = nbCollection.orderBy("updated", "desc").limit(100);
+    const query = pkgCollection.orderBy("updated", "desc").limit(100);
     const snapshots = await query.get();
     const out = [];
     snapshots.forEach(snap => {
-      const nbId = snap.id;
-      const doc = snap.data();
-      out.unshift({ nbId, doc });
+      const pkgId = snap.id;
+      const pkg = snap.data();
+      out.unshift({ pkgId, pkg });
     });
     return out.reverse();
   }
 
-  async queryProfile(uid: string, limit: number): Promise<NbInfo[]> {
+  async queryProfile(uid: string, limit: number): Promise<PackageInfo[]> {
     lazyInit();
-    const query = nbCollection
+    const query = pkgCollection
       .orderBy("updated", "desc")
       .where("owner.uid", "==", uid)
       .limit(limit);
     const snapshots = await query.get();
     const out = [];
     snapshots.forEach(snap => {
-      const nbId = snap.id;
-      const doc = snap.data();
-      out.push({ nbId, doc });
+      const pkgId = snap.id;
+      const pkg = snap.data();
+      out.unshift({ pkgId, pkg });
     });
     return out.reverse();
   }
@@ -176,7 +146,7 @@ class DatabaseFB implements Database {
 
 export class DatabaseMock implements Database {
   private currentUser: UserInfo = null;
-  private docs: { [key: string]: NotebookDoc };
+  private docs: { [key: string]: Package };
   counts = {};
   inc(method) {
     if (method in this.counts) {
@@ -187,43 +157,38 @@ export class DatabaseMock implements Database {
   }
 
   constructor() {
-    assert(defaultDoc != null);
-    this.docs = { default: Object.assign({}, defaultDoc) };
+    assert(defaultPackage != null);
+    this.docs = { default: Object.assign({}, defaultPackage) };
   }
 
-  async getDoc(nbId: string): Promise<NotebookDoc> {
-    this.inc("getDoc");
-    if (this.docs[nbId] === null) {
-      throw Error("getDoc called with bad nbId " + nbId);
+  async getPackage(pkgId: string): Promise<Package> {
+    this.inc("getPackage");
+    if (this.docs[pkgId] === null) {
+      throw Error("getPackage called with bad pkgId " + pkgId);
     }
-    return this.docs[nbId];
+    return this.docs[pkgId];
   }
 
-  async updateDoc(nbId: string, doc: NotebookDoc): Promise<void> {
-    this.inc("updateDoc");
-    this.docs[nbId] = Object.assign(this.docs[nbId], doc);
+  async updatePackage(pkgId: string, pkg: Package): Promise<void> {
+    this.inc("updatePackage");
+    this.docs[pkgId] = Object.assign(this.docs[pkgId], pkg);
   }
 
-  async clone(existingDoc: NotebookDoc): Promise<string> {
-    this.inc("clone");
-    return "clonedNbId";
-  }
-
-  async create(): Promise<string> {
+  async create(title: string, url: string): Promise<string> {
     this.inc("create");
-    return "createdNbId";
+    return "createdPrId";
   }
 
-  async queryProfile(uid: string, limit: number): Promise<NbInfo[]> {
+  async queryProfile(uid: string, limit: number): Promise<PackageInfo[]> {
     this.inc("queryProfile");
-    if (uid === defaultOwner.uid) {
-      return [{ nbId: "default", doc: defaultDoc }];
+    if (uid === defaultOwner.uid && limit > 0) {
+      return [{ pkgId: "default", pkg: defaultPackage }];
     } else {
       return [];
     }
   }
 
-  async queryLatest(): Promise<NbInfo[]> {
+  async queryLatest(): Promise<PackageInfo[]> {
     this.inc("queryLatest");
     return [];
   }
@@ -269,8 +234,8 @@ export function enableMock(): DatabaseMock {
   return d;
 }
 
-export function ownsDoc(userInfo: UserInfo, doc: NotebookDoc): boolean {
-  return userInfo && userInfo.uid === doc.owner.uid;
+export function ownsPackage(userInfo: UserInfo, pkg: Package): boolean {
+  return userInfo && userInfo.uid === pkg.owner.uid;
 }
 
 function lazyInit() {
@@ -279,7 +244,7 @@ function lazyInit() {
     db = firebase.firestore();
     // firebase.firestore.setLogLevel("debug");
     auth = firebase.auth();
-    nbCollection = db.collection("notebooks");
+    pkgCollection = db.collection("packages");
   }
   return true;
 }
@@ -290,33 +255,10 @@ export const defaultOwner: UserInfo = Object.freeze({
   uid: "abc"
 });
 
-const testdataUrl = `${location.origin}/repo/src/testdata`;
-const defaultDocCells: ReadonlyArray<string> = Object.freeze([
-  ` console.log("Hello"); `,
-  ` 1 + 2 `,
-  `import * as vegalite from "${testdataUrl}/vega-lite@2.js"`,
-  `import * as tf from "${testdataUrl}/tfjs@0.10.0.js"
-   tf.tensor([1, 2, 3]);
-  `
-]);
-
-export const defaultDoc: NotebookDoc = Object.freeze({
-  cells: defaultDocCells.slice(0).map(c => c.trim()),
+export const defaultPackage: Package = Object.freeze({
   created: new Date(),
   owner: Object.assign({}, defaultOwner),
-  title: "Sample Notebook",
-  updated: new Date()
+  title: "Sample Package",
+  updated: new Date(),
+  url: "https://github.com/denoland/deno"
 });
-
-// To bridge the old and new NotebookDoc scheme.
-// In the old NotebookDoc we only had `doc.cells`, in the new
-// scheme we have `cellDocs`.
-export function getInputCodes(doc: NotebookDoc): string[] {
-  if (doc.cells != null) {
-    return doc.cells;
-  } else if (doc.cellDocs != null) {
-    return doc.cellDocs.map(cellDoc => cellDoc.input);
-  } else {
-    return [];
-  }
-}
