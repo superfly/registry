@@ -20,10 +20,6 @@ import { UserMenu } from "./menu";
 export const Home = props => {
   return (
     <div class="index">
-      <GlobalHeader>
-        <UserMenu userInfo={props.userInfo} />
-      </GlobalHeader>
-
         <div class="flex-row">
           <div class="flex-cell">
             <h2>Create Package</h2>
