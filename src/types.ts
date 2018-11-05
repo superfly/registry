@@ -44,7 +44,7 @@ export interface NbInfo {
 }
 
 export interface Package {
-  title: string;
+  name: string;
   owner: UserInfo;
   url: string;
   updated: Date;

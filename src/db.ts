@@ -25,7 +25,7 @@ import { assert } from "./util";
 export interface Database {
   getPackage(pkgId: string): Promise<Package>;
   updatePackage(pkgId: string, pkg: Package): Promise<void>;
-  create(title: string, url: string): Promise<string>;
+  create(name: string, url: string): Promise<string>;
   queryLatest(): Promise<PackageInfo[]>;
   signIn(): void;
   signOut(): void;
@@ -71,13 +71,13 @@ class DatabaseFB implements Database {
     if (!ownsPackage(auth.currentUser, doc)) return;
     const docRef = pkgCollection.doc(pkgId);
     await docRef.update({
-      title: doc.title || "",
+      name: doc.name || "",
       updated: firebase.firestore.FieldValue.serverTimestamp(),
       url: doc.url || ""
     });
   }
 
-  async create(title: string, url: string): Promise<string> {
+  async create(name: string, url: string): Promise<string> {
     lazyInit();
     const u = auth.currentUser;
     if (!u) return "anonymous";
@@ -89,7 +89,7 @@ class DatabaseFB implements Database {
         photoURL: u.photoURL,
         uid: u.uid
       },
-      title,
+      name,
       updated: firebase.firestore.FieldValue.serverTimestamp(),
       url
     };
@@ -174,7 +174,7 @@ export class DatabaseMock implements Database {
     this.docs[pkgId] = Object.assign(this.docs[pkgId], pkg);
   }
 
-  async create(title: string, url: string): Promise<string> {
+  async create(name: string, url: string): Promise<string> {
     this.inc("create");
     return "createdPrId";
   }
@@ -258,7 +258,7 @@ export const defaultOwner: UserInfo = Object.freeze({
 export const defaultPackage: Package = Object.freeze({
   created: new Date(),
   owner: Object.assign({}, defaultOwner),
-  title: "Sample Package",
+  name: "sample_package",
   updated: new Date(),
   url: "https://github.com/denoland/deno"
 });
