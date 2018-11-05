@@ -138,7 +138,6 @@ export async function localServer(
     await cb(`http://${document.location.host}/`);
   } else {
     const root = __dirname + "/../build/website";
-    const { isDir } = require("../src/util_node");
     assert(
       isDir(root),
       root +
@@ -156,5 +155,15 @@ export async function localServer(
     }
   }
 }
+
+function isDir(p: string): boolean { 
+  try { 
+    const fs = require("fs"); 
+    return fs.statSync(p).isDirectory();  
+  } catch (e) { 
+    if (e.code === "ENOENT") return false;  
+    throw e;  
+  } 
+} 
 
 setTimeout(runTests, 0);
