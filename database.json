@@ -1,0 +1,4 @@
+{
+  "http": "https://raw.githubusercontent.com/denoland/http/master/",
+  "testing": "https://raw.githubusercontent.com/denoland/deno/master/js/testing/"
+}

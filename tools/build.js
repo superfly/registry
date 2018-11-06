@@ -82,6 +82,17 @@ function makeBundle(options = {}) {
   return new Bundler(entryPoints, options);
 }
 
+// TODO Cron job to update the database with current Firebase values.
+const DATABASE = require("../database.json");
+
+function proxy(name, rest, req, res) {
+  const proxyUrl = DATABASE[name];
+  const l = proxyUrl + rest;
+  console.log("Redirect", req.url, l);
+  res.writeHead(302,  { "Location": l });
+  res.end();
+}
+
 function buildAndServe(options = {}) {
   const { port } = { port: 8080, ...options };
   console.log(`Server listening on http://localhost:${port}/`);
@@ -94,6 +105,11 @@ function buildAndServe(options = {}) {
     if (u.pathname === "/") {
       // Rewrite requests for / to /index.html.
       u.pathname = "/index.html";
+    } else if (u.pathname.startsWith("/x/")) {
+      const i = u.pathname.indexOf('/', 3);
+      const name = u.pathname.slice(3, i);
+      const rest = u.pathname.slice(i);
+      return proxy(name, rest, req, res)
     } else if (path.extname(u.pathname) === "") {
       // Add .html to paths without an extension.
       u.pathname += ".html";
