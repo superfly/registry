@@ -1,0 +1,7 @@
+{
+  "net": "https://raw.githubusercontent.com/denoland/net/master/",
+  "leftspread":
+    "https://gist.githubusercontent.com/piscisaureus/a4fa24a16eb12663472a62cc2b0b602f/raw/",
+  "testing":
+    "https://raw.githubusercontent.com/denoland/deno/master/js/testing/"
+}

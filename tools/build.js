@@ -54,7 +54,7 @@ function makeBundle(options = {}) {
   run.mkdir(wdir);
 
   // Create CNAME file to tell github pages about our custom domain.
-  fs.writeFileSync(`${wdir}/CNAME`, "propelml.org");
+  fs.writeFileSync(`${wdir}/CNAME`, "deno.land");
 
   if (!options.production) {
     // The symlink to the source repository root is only needed for tests.
@@ -83,7 +83,7 @@ function makeBundle(options = {}) {
 }
 
 // TODO Cron job to update the database with current Firebase values.
-const DATABASE = require("../database.json");
+const DATABASE = require("../x/database.json");
 
 function proxy(name, rest, req, res) {
   const proxyUrl = DATABASE[name];
