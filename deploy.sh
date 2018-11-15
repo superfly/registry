@@ -3,11 +3,11 @@
 sam package --template-file template.yaml \
   --output-template-file packaged.yaml --s3-bucket deno.land
 
-#aws cloudformation deploy \
-#  --template-file /Users/rld/src/registry/packaged.yaml \
-#  --stack-name denoland3
-
 sam deploy --template-file packaged.yaml \
   --stack-name denoland4  --capabilities CAPABILITY_IAM
 
-aws s3 sync build/website s3://deno.land 
+#aws cloudfront create-invalidation --distribution-id E3NZSZMS5TZ0OU \
+#  --paths "/x/*"
+
+echo "Manually edit behaviors at https://console.aws.amazon.com/cloudfront/home?region=us-east-1#distribution-settings:E3NZSZMS5TZ0OU"
+echo "Manually update lambda https://console.aws.amazon.com/lambda/home?region=us-east-1"

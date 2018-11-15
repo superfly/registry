@@ -23,7 +23,7 @@ Outputs:
 Resources:
   DenoLandFunction:
     Properties:
-      CodeUri: s3://deno.land/0a4714d14640f423a371ce36549347f4
+      CodeUri: s3://deno.land/8cdd251c26444843e517eaf603610e68
       Events:
         DenoLand:
           Properties:
