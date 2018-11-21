@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: denoland3
+Description: deno.land/x redirect server.
 Globals:
   Function:
     Timeout: 3
@@ -23,7 +23,7 @@ Outputs:
 Resources:
   DenoLandFunction:
     Properties:
-      CodeUri: s3://deno.land/8cdd251c26444843e517eaf603610e68
+      CodeUri: s3://deno.land/167900145095c11500f0a1c6915da5de
       Events:
         DenoLand:
           Properties:
