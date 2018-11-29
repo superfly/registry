@@ -8,5 +8,7 @@
   "testing":
     "https://raw.githubusercontent.com/denoland/deno/master/js/testing/",
   "dotenv":
-    "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/master/"
+    "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/master/",
+  "path":
+    "https://raw.githubusercontent.com/zhmushan/deno_path/master/"
 }
