@@ -1,5 +1,6 @@
-// TODO Cron job to update the database with current Firebase values.
+// TODO Cron job to update the database with current values.
 const DATABASE = require("./database.json");
+const { assert } = console;
 
 function notFound() {
   return {
@@ -8,23 +9,38 @@ function notFound() {
   };
 }
 
-function proxy(pathname) {
+exports.proxy = (pathname) => {
   if (!pathname.startsWith("/x/")) {
     return notFound();
   }
 
   const i = pathname.indexOf("/", 3);
-  const name = pathname.slice(3, i);
-  const rest = pathname.slice(i);
-  const proxyUrl = DATABASE[name];
+  const rest = pathname.slice(i + 1);
+  assert(!rest.startsWith("/"));
+  const nameBranch = pathname.slice(3, i);
+  let [name, branch] = nameBranch.split("@", 2);
+  const urlPattern = DATABASE[name];
 
-  if (!proxyUrl) {
+  if (!branch) {
+    branch = "master";
+  }
+
+  if (!urlPattern) {
     return notFound();
   }
 
-  const l = proxyUrl + rest;
+  const url = urlPattern.replace("${b}", branch);
+  assert(url.endsWith("/"));
+  return url + rest;
+}
+
+exports.lambdaHandler = (event, context, callback) => {
+  console.log("Received event:", JSON.stringify(event, null, 2));
+  const pathname = event.Records[0].cf.request.uri;
+  console.log("pathname", pathname);
+  const l = proxy(pathname);
   console.log("redirect", pathname, l);
-  return {
+  const response = {
     status: "302",
     headers: {
       location: [
@@ -35,12 +51,5 @@ function proxy(pathname) {
       ]
     }
   };
-}
-
-exports.lambdaHandler = (event, context, callback) => {
-  console.log("Received event:", JSON.stringify(event, null, 2));
-  const pathname = event.Records[0].cf.request.uri;
-  console.log("pathname", pathname);
-  const response = proxy(pathname);
   callback(null, response);
 };
