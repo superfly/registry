@@ -1,5 +1,6 @@
 {
   "net": "https://raw.githubusercontent.com/denoland/deno_std/${b}/net/",
+  "std": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
   "examples": "https://raw.githubusercontent.com/denoland/deno_examples/${b}/",
   "install": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
   "parseargs": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
