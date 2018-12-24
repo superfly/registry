@@ -18,6 +18,7 @@ Resources:
                     Properties:
                         Path: /x
                         Method: get
+                        cors: true
 
 Outputs:
 

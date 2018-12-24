@@ -103,7 +103,7 @@ exports.lambdaHandler = (event, context, callback) => {
         {
           key: "Location",
           value: l
-        },
+        }
       ],
       "Access-Control-Allow-Origin": [
         {
