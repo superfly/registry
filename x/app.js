@@ -99,13 +99,13 @@ exports.lambdaHandler = (event, context, callback) => {
   const response = {
     status: "302",
     headers: {
-      "Location": [
+      "location": [
         {
           key: "Location",
           value: l
         }
       ],
-      "Access-Control-Allow-Origin": [
+      "access-control-allow-origin": [
         {
           key: "Access-Control-Allow-Origin",
           value: "*"
