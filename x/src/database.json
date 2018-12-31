@@ -11,5 +11,6 @@
   "path": "https://raw.githubusercontent.com/denoland/deno_std/${b}/path/",
   "colors": "https://raw.githubusercontent.com/denoland/deno_std/${b}/colors/",
   "logging": "https://raw.githubusercontent.com/denoland/deno_std/${b}/logging/",
-  "abc": "https://raw.githubusercontent.com/zhmushan/abc/${b}/"
+  "abc": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
+  "minimatch": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/"
 }
