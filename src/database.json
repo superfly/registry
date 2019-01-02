@@ -13,5 +13,6 @@
   "logging": "https://raw.githubusercontent.com/denoland/deno_std/${b}/logging/",
   "abc": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
   "minimatch": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
-  "dejs": "https://raw.githubusercontent.com/syumai/dejs/${b}/"
+  "dejs": "https://raw.githubusercontent.com/syumai/dejs/${b}/",
+  "pretty_assert": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/"
 }
