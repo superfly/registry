@@ -21,5 +21,6 @@
   "task_runner": "https://raw.githubusercontent.com/jinjor/deno-task-runner/${b}/",
   "ws": "https://raw.githubusercontent.com/denoland/deno_std/${b}/ws/",
   "io": "https://raw.githubusercontent.com/denoland/deno_std/${b}/io/",
+  "media_types": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
   "textproto": "https://raw.githubusercontent.com/denoland/deno_std/${b}/textproto/"
 }
