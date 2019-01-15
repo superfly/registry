@@ -22,5 +22,6 @@
   "ws": "https://raw.githubusercontent.com/denoland/deno_std/${b}/ws/",
   "io": "https://raw.githubusercontent.com/denoland/deno_std/${b}/io/",
   "media_types": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
-  "textproto": "https://raw.githubusercontent.com/denoland/deno_std/${b}/textproto/"
+  "textproto": "https://raw.githubusercontent.com/denoland/deno_std/${b}/textproto/",
+  "postgres": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/"
 }
