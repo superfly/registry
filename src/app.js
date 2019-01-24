@@ -1,5 +1,6 @@
 // TODO Cron job to update the database with current values.
 const DATABASE = require("./database.json");
+const homepageHTML = require("./homepage");
 const { assert } = console;
 
 const notFound = {
@@ -24,7 +25,7 @@ function proxy(pathname) {
   const rest = pathname.slice(i + 1);
   const nameBranch = pathname.slice(3, i);
   let [name, branch] = nameBranch.split("@", 2);
-  const urlPattern = DATABASE[name];
+  const urlPattern = DATABASE[name] ? DATABASE[name].url : null;
 
   if (!branch) {
     branch = "master";
@@ -41,32 +42,10 @@ function proxy(pathname) {
 }
 exports.proxy = proxy;
 
-const docs = `
-  <h1>deno.land packages</h1>
-  <p>
-    This is a URL redirection service for Deno scripts.
-    The basic format is
-    <code>https://deno.land/x/NAME@BRANCH/SCRIPT.ts</code>
-    If you leave out the branch, it will default to master.
-  </p>
-  <p>
-    To add a package send a pull request to
-    <code>https://github.com/denoland/registry/blob/master/src/database.json</code>
-  </p>
-`;
-
 function indexPage() {
-  let body = `<!DOCTYPE html><html>${docs}<ul>`;
-
-  for (let name in DATABASE) {
-    const url = DATABASE[name];
-    body += `<li>https://deno.land/x/${name}/  &rarr;  ${url} </li>\n`;
-  }
-
-  body += "</ul></html>";
   return {
     status: "200",
-    body,
+    body: homepageHTML,
     headers: {
       "Content-Type": [
         {
@@ -99,7 +78,7 @@ exports.lambdaHandler = (event, context, callback) => {
   const response = {
     status: "302",
     headers: {
-      "location": [
+      location: [
         {
           key: "Location",
           value: l

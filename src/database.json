@@ -1,27 +1,98 @@
 {
-  "net": "https://raw.githubusercontent.com/denoland/deno_std/${b}/net/",
-  "http": "https://raw.githubusercontent.com/denoland/deno_std/${b}/http/",
-  "fs": "https://raw.githubusercontent.com/denoland/deno_std/${b}/fs/",
-  "std": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
-  "examples": "https://raw.githubusercontent.com/denoland/deno_std/${b}/examples/",
-  "install": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
-  "parseargs": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
-  "flags": "https://raw.githubusercontent.com/denoland/deno_std/${b}/flags/",
-  "leftspread": "https://gist.githubusercontent.com/piscisaureus/a4fa24a16eb12663472a62cc2b0b602f/raw/${b}/leftspread.d.ts",
-  "testing": "https://raw.githubusercontent.com/denoland/deno_std/${b}/testing/",
-  "dotenv": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
-  "colors": "https://raw.githubusercontent.com/denoland/deno_std/${b}/colors/",
-  "logging": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
-  "log": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
-  "abc": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
-  "minimatch": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
-  "dejs": "https://raw.githubusercontent.com/syumai/dejs/${b}/",
-  "pretty_assert": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
-  "watch": "https://raw.githubusercontent.com/jinjor/deno-watch/${b}/",
-  "task_runner": "https://raw.githubusercontent.com/jinjor/deno-task-runner/${b}/",
-  "ws": "https://raw.githubusercontent.com/denoland/deno_std/${b}/ws/",
-  "io": "https://raw.githubusercontent.com/denoland/deno_std/${b}/io/",
-  "media_types": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
-  "textproto": "https://raw.githubusercontent.com/denoland/deno_std/${b}/textproto/",
-  "postgres": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/"
+  "net": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/net/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/net"
+  },
+  "http": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/http/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/http"
+  },
+  "fs": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/fs/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/fs"
+  },
+  "std": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
+    "repo": "https://github.com/denoland/deno_std"
+  },
+  "examples": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/examples/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/examples"
+  },
+  "install": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
+    "repo": "https://github.com/denoland/deno_install"
+  },
+  "parseargs": {
+    "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
+    "repo": "https://github.com/bartlomieju/parseargs/"
+  },
+  "flags": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/flags/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/flags"
+  },
+  "testing": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/testing/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/testing"
+  },
+  "dotenv": {
+    "url": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
+    "repo": "https://github.com/pietvanzoen/deno-dotenv"
+  },
+  "colors": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/colors/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/colors"
+  },
+  "logging": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/log"
+  },
+  "log": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/log"
+  },
+  "abc": {
+    "url": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
+    "repo": "https://github.com/zhmushan/abc"
+  },
+  "minimatch": {
+    "url": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
+    "repo": "https://github.com/chrisdothtml/deno-minimatch"
+  },
+  "dejs": {
+    "url": "https://raw.githubusercontent.com/syumai/dejs/${b}/",
+    "repo": "https://github.com/syumai/dejs"
+  },
+  "pretty_assert": {
+    "url": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
+    "repo": "https://github.com/bokuweb/deno-pretty-assert"
+  },
+  "watch": {
+    "url": "https://raw.githubusercontent.com/jinjor/deno-watch/${b}/",
+    "repo": "https://github.com/jinjor/deno-watch"
+  },
+  "task_runner": {
+    "url": "https://raw.githubusercontent.com/jinjor/deno-task-runner/${b}/",
+    "repo": "https://github.com/jinjor/deno-task-runner"
+  },
+  "ws": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/ws/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/ws"
+  },
+  "io": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/io/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/io"
+  },
+  "media_types": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/media_types"
+  },
+  "textproto": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/textproto/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/textproto"
+  },
+  "postgres": {
+    "url": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/",
+    "repo": "https://github.com/bartlomieju/deno-postgres"
+  }
 }
