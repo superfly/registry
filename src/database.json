@@ -98,5 +98,9 @@
   "postgres": {
     "url": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/",
     "repo": "https://github.com/bartlomieju/deno-postgres"
+  },
+  "blake2b": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/blake2b/${b}/",
+    "repo": "https://github.com/chiefbiiko/blake2b"
   }
 }
