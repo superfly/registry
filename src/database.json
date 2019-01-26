@@ -67,6 +67,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/net/",
     "repo": "https://github.com/denoland/deno_std/tree/master/net"
   },
+  "oak": {
+    "url": "https://raw.githubusercontent.com/oakserver/oak/${b}/",
+    "repo": "https://github.com/oakserver/oak"
+  },
   "parseargs": {
     "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
     "repo": "https://github.com/bartlomieju/parseargs/"
