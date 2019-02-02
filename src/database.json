@@ -75,6 +75,10 @@
     "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
     "repo": "https://github.com/bartlomieju/parseargs/"
   },
+  "pogo": {
+    "url": "https://raw.githubusercontent.com/sholladay/pogo/${b}/",
+    "repo": "https://github.com/sholladay/pogo"
+  },
   "postgres": {
     "url": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/",
     "repo": "https://github.com/bartlomieju/deno-postgres"
