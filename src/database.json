@@ -11,6 +11,10 @@
     "url": "https://raw.githubusercontent.com/chiefbiiko/blake2b/${b}/",
     "repo": "https://github.com/chiefbiiko/blake2b"
   },
+  "cli_spinners": {
+    "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/mod.ts",
+    "repo": "https://github.com/ameerthehacker/cli-spinners"
+  },
   "colors": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/colors/",
     "repo": "https://github.com/denoland/deno_std/tree/master/colors"
