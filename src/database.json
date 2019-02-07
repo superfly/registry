@@ -3,6 +3,10 @@
     "url": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
     "repo": "https://github.com/zhmushan/abc"
   },
+  "benching": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/benching/${b}/",
+    "repo": "https://github.com/chiefbiiko/benching"
+  },
   "blake2b": {
     "url": "https://raw.githubusercontent.com/chiefbiiko/blake2b/${b}/",
     "repo": "https://github.com/chiefbiiko/blake2b"
