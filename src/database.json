@@ -51,6 +51,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/io/",
     "repo": "https://github.com/denoland/deno_std/tree/master/io"
   },
+  "ky": {
+    "url": "https://raw.githubusercontent.com/sindresorhus/ky/${b}/",
+    "repo": "https://github.com/sindresorhus/ky"
+  },
   "lodash": {
     "url": "https://raw.githubusercontent.com/lodash/lodash/${b}/",
     "repo": "https://github.com/lodash/lodash"
