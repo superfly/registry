@@ -19,6 +19,14 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/colors/",
     "repo": "https://github.com/denoland/deno_std/tree/master/colors"
   },
+  "core": {
+    "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
+    "repo": "https://github.com/denoland/deno"
+  },
+  "deno": {
+    "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
+    "repo": "https://github.com/denoland/deno"
+  },
   "dejs": {
     "url": "https://raw.githubusercontent.com/syumai/dejs/${b}/",
     "repo": "https://github.com/syumai/dejs"
