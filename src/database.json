@@ -91,6 +91,10 @@
     "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
     "repo": "https://github.com/bartlomieju/parseargs/"
   },
+  "pipeline": {
+    "url": "https://raw.githubusercontent.com/Focinfi/deno-pipeline/${b}/",
+    "repo": "https://github.com/Focinfi/deno-pipeline"
+  },
   "pogo": {
     "url": "https://raw.githubusercontent.com/sholladay/pogo/${b}/",
     "repo": "https://github.com/sholladay/pogo"
