@@ -11,6 +11,10 @@
     "url": "https://raw.githubusercontent.com/chiefbiiko/blake2b/${b}/",
     "repo": "https://github.com/chiefbiiko/blake2b"
   },
+  "bytes": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/bytes/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/bytes"
+  },
   "cli_spinners": {
     "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/mod.ts",
     "repo": "https://github.com/ameerthehacker/cli-spinners"
@@ -22,6 +26,10 @@
   "core": {
     "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
     "repo": "https://github.com/denoland/deno"
+  },
+  "datetime": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/datetime/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/datetime"
   },
   "deno": {
     "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
@@ -79,6 +87,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
     "repo": "https://github.com/denoland/deno_std/tree/master/media_types"
   },
+  "multipart": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/multipart/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/multipart"
+  },
   "minimatch": {
     "url": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
     "repo": "https://github.com/chrisdothtml/deno-minimatch"
@@ -103,6 +115,10 @@
     "url": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/",
     "repo": "https://github.com/bartlomieju/deno-postgres"
   },
+  "prettier": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/prettier/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/prettier"
+  },
   "pretty_assert": {
     "url": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
     "repo": "https://github.com/bokuweb/deno-pretty-assert"
@@ -110,6 +126,10 @@
   "std": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
     "repo": "https://github.com/denoland/deno_std"
+  },
+  "strings": {
+    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/strings/",
+    "repo": "https://github.com/denoland/deno_std/tree/master/strings"
   },
   "task_runner": {
     "url": "https://raw.githubusercontent.com/jinjor/deno-task-runner/${b}/",
