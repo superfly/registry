@@ -75,10 +75,6 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
     "repo": "https://github.com/denoland/deno_std/tree/master/log"
   },
-  "logging": {
-    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
-    "repo": "https://github.com/denoland/deno_std/tree/master/log"
-  },
   "media_types": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
     "repo": "https://github.com/denoland/deno_std/tree/master/media_types"
@@ -86,10 +82,6 @@
   "minimatch": {
     "url": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
     "repo": "https://github.com/chrisdothtml/deno-minimatch"
-  },
-  "net": {
-    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/net/",
-    "repo": "https://github.com/denoland/deno_std/tree/master/net"
   },
   "oak": {
     "url": "https://raw.githubusercontent.com/oakserver/oak/${b}/",
