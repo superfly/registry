@@ -71,6 +71,10 @@
     "url": "https://raw.githubusercontent.com/sindresorhus/ky/${b}/",
     "repo": "https://github.com/sindresorhus/ky"
   },
+  "lazy": {
+    "url": "https://raw.githubusercontent.com/luvies/lazy/${b}/lib/",
+    "repo": "https://github.com/luvies/lazy"
+  },
   "license_checker": {
     "url": "https://raw.githubusercontent.com/kt3k/deno_license_checker/${b}/",
     "repo": "https://github.com/kt3k/deno_license_checker"
