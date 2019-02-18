@@ -155,6 +155,10 @@
     "url": "https://raw.githubusercontent.com/lucascaro/deno-uuid/${b}/",
     "repo": "https://github.com/lucascaro/deno-uuid"
   },
+  "using": {
+    "url": "https://raw.githubusercontent.com/hayd/deno-using/${b}/",
+    "repo": "https://github.com/hayd/deno-using"
+  },
   "watch": {
     "url": "https://raw.githubusercontent.com/jinjor/deno-watch/${b}/",
     "repo": "https://github.com/jinjor/deno-watch"
