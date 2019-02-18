@@ -39,6 +39,14 @@
     "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
     "repo": "https://github.com/denoland/deno"
   },
+  "denoget": {
+    "url": "https://raw.githubusercontent.com/syumai/denoget/${b}/",
+    "repo": "https://github.com/syumai/denoget"
+  },
+  "denoversion": {
+    "url": "https://raw.githubusercontent.com/lucascaro/denoversion/${b}/",
+    "repo": "https://github.com/lucascaro/denoversion"
+  },
   "dejs": {
     "url": "https://raw.githubusercontent.com/syumai/dejs/${b}/",
     "repo": "https://github.com/syumai/dejs"
