@@ -1,15 +1,28 @@
 #!/bin/bash
 
-set -e
+set -ev
 
-sam package --template-file template.yaml \
-  --output-template-file packaged.yaml --s3-bucket deno.land
+bash test.sh
 
-sam deploy --template-file packaged.yaml \
-  --stack-name denoland4  --capabilities CAPABILITY_IAM
+print_errors() {
+  aws cloudformation describe-stack-events --stack-name denoland1 \
+    | grep -i status | head -20
+  false
+}
 
-#aws cloudfront create-invalidation --distribution-id E3NZSZMS5TZ0OU \
-#  --paths "/x/*"
+aws cloudformation validate-template --template-body "`cat template.yaml`"
 
-echo "Manually update lambda https://console.aws.amazon.com/lambda/home?region=us-east-1"
-echo "then manually run:  aws cloudfront create-invalidation --distribution-id E3NZSZMS5TZ0OU --paths /x*"
+aws cloudformation package \
+  --template-file template.yaml \
+  --s3-bucket deno.land  \
+  --s3-prefix cloudformation_package \
+  --output-template-file packaged.yaml
+
+aws cloudformation deploy \
+  --template-file packaged.yaml \
+  --stack-name denoland1 \
+  --tags stack=denoland1 \
+  --capabilities CAPABILITY_IAM || print_errors
+
+# aws cloudformation delete-stack --stack-name denoland1
+# aws cloudformation cancel-update-stack --stack-name denoland1

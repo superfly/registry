@@ -59,9 +59,17 @@ function indexPage() {
 exports.indexPage = indexPage;
 
 exports.lambdaHandler = (event, context, callback) => {
-  console.log("Received event:", JSON.stringify(event, null, 2));
-  const pathname = event.Records[0].cf.request.uri;
-  console.log("pathname", pathname);
+  // console.log("Received event:", JSON.stringify(event, null, 2));
+  const { request } = event.Records[0].cf;
+
+  const olduri = request.uri;
+  request.uri = olduri.replace(/\/$/, "/index.html");
+  if (olduri !== request.uri) {
+    console.log("rewrite uri", olduri, request.uri);
+  }
+
+  const pathname = request.uri;
+  // console.log("pathname", pathname);
 
   if (pathname === "/x/" || pathname === "/x" || pathname === "/x/index.html") {
     callback(null, indexPage());
@@ -70,8 +78,8 @@ exports.lambdaHandler = (event, context, callback) => {
 
   const l = proxy(pathname);
   if (!l) {
-    callback(null, notFound);
-    return;
+    // Do not process if not in proxy. Forwards to deno.land s3 bucket.
+    return callback(null, request);
   }
 
   console.log("redirect", pathname, l);

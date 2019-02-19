@@ -1,17 +1,37 @@
-const { proxy, indexPage } = require("./app");
+const { lambdaHandler, proxy, indexPage } = require("./app");
 const assert = require("assert");
 
+const database = require("./database.json");
+// No dashes in the database.
+for (let key in database) {
+  assert(key.indexOf("-") < 0);
+}
+
 assert.equal(
-  proxy("/x/net/main.js"),
-  "https://raw.githubusercontent.com/denoland/deno_std/master/net/main.js"
+  proxy("/x/std/foo/bar.js"),
+  "https://raw.githubusercontent.com/denoland/deno_std/master/foo/bar.js"
 );
 assert.equal(
-  proxy("/x/net/foo/bar.js"),
-  "https://raw.githubusercontent.com/denoland/deno_std/master/net/foo/bar.js"
-);
-assert.equal(
-  proxy("/x/net@v0.1.2/foo/bar.js"),
-  "https://raw.githubusercontent.com/denoland/deno_std/v0.1.2/net/foo/bar.js"
+  proxy("/x/std@v0.1.2/foo/bar.js"),
+  "https://raw.githubusercontent.com/denoland/deno_std/v0.1.2/foo/bar.js"
 );
 
-console.log(indexPage());
+let page = indexPage();
+assert(page.body.indexOf("html") >= 0);
+
+let event = require("./req1.json");
+let context = {}; // TODO
+let counter = 0;
+let response = null;
+let callback = (_unused, response_) => {
+  response = response_;
+  counter++;
+};
+lambdaHandler(event, context, callback);
+assert.equal(counter, 1);
+assert.equal(response.uri, "/deno_logo_2.gif");
+
+event = require("./req2.json");
+lambdaHandler(event, context, callback);
+assert.equal(counter, 2);
+assert.equal(response.uri, "/index.html");
