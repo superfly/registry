@@ -1,5 +1,6 @@
 # See the following for documentation:
 # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md
+# https://github.com/awslabs/serverless-application-model/blob/master/examples/2016-10-31/lambda_edge/template.yaml
 
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
@@ -12,16 +13,10 @@ Resources:
       CodeUri: src/
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
-      Events:
-        DenoLand:
-          Type: Api
-          Properties:
-            Path: /x
-            Method: get
+
   DenoLandCloudFront:
     Type: AWS::CloudFront::Distribution
     Properties:
-      DistributionConfig:
       Enabled: true
       DefaultRootObject: index.html
       Origins:
@@ -35,4 +30,5 @@ Resources:
         TargetOriginId: DenoLandOrigin
         LambdaFunctionAssociations:
         - EventType: origin-request
-          LambdaFunctionARN: !Ref DenoLandFunction.Version
+          LambdaFunctionARN: 
+            Ref: DenoLandFunction.Version
