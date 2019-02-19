@@ -2,16 +2,13 @@ const { proxy, indexPage } = require("./app");
 const assert = require("assert");
 
 assert.equal(
-  proxy("/x/net/main.js"),
-  "https://raw.githubusercontent.com/denoland/deno_std/master/net/main.js"
+  proxy("/x/std/foo/bar.js"),
+  "https://raw.githubusercontent.com/denoland/deno_std/master/foo/bar.js"
 );
 assert.equal(
-  proxy("/x/net/foo/bar.js"),
-  "https://raw.githubusercontent.com/denoland/deno_std/master/net/foo/bar.js"
-);
-assert.equal(
-  proxy("/x/net@v0.1.2/foo/bar.js"),
-  "https://raw.githubusercontent.com/denoland/deno_std/v0.1.2/net/foo/bar.js"
+  proxy("/x/std@v0.1.2/foo/bar.js"),
+  "https://raw.githubusercontent.com/denoland/deno_std/v0.1.2/foo/bar.js"
 );
 
-console.log(indexPage());
+let page = indexPage();
+assert(page.body.indexOf("html") >= 0);
