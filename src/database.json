@@ -55,6 +55,10 @@
     "url": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
     "repo": "https://github.com/pietvanzoen/deno-dotenv"
   },
+  "escape-string-regexp": {
+    "url": "https://raw.githubusercontent.com/Sab94/escape-string-regexp/${b}",
+    "repo": "https://github.com/Sab94/escape-string-regexp"
+  },
   "examples": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/examples/",
     "repo": "https://github.com/denoland/deno_std/tree/master/examples"
