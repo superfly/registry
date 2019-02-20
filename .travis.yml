@@ -4,7 +4,7 @@ cache:
     - $HOME/.local/bin
 before_install:
   - pip install awscli
-  - npm install prettier
+  #- npm install prettier
 script:
   - ./format.sh
   - ./test.sh
