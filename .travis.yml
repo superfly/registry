@@ -4,9 +4,11 @@ cache:
     - $HOME/.local/bin
 before_install:
   - pip install awscli
+  - npm install prettier
+  - gem install travis
   - export PATH=$PATH:$HOME/.local/bin
 script:
-  #- ./format.sh
+  - ./format.sh
   - ./test.sh
 deploy:
   - provider: script
