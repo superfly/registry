@@ -10,6 +10,8 @@ print_errors() {
   false
 }
 
+aws cloudformation validate-template --template-body "`cat template.yaml`"
+
 aws cloudformation package \
   --template-file template.yaml \
   --s3-bucket deno.land  \
