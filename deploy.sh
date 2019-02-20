@@ -17,3 +17,4 @@ aws cloudformation deploy \
 
 # aws cloudformation describe-stack-events --stack-name denoland0 | grep Err
 # aws cloudformation delete-stack --stack-name denoland0
+# aws cloudformation cancel-update-stack --stack-name denoland0

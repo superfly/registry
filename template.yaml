@@ -12,6 +12,7 @@ Resources:
     Properties:
       DistributionConfig:
         Enabled: true
+        PriceClass: PriceClass_100
         ViewerCertificate:
           AcmCertificateArn: "arn:aws:acm:us-east-1:996721126982:certificate/17ec3785-d60f-46af-837f-fbeefdb31203"
           MinimumProtocolVersion: TLSv1.1_2016
@@ -21,13 +22,12 @@ Resources:
           LambdaFunctionAssociations:
             - EventType: origin-request
               LambdaFunctionARN: !Ref DenoLandFunction.Version
-              #LambdaFunctionARN: !GetAtt DenoLandFunction.Version
           ForwardedValues:
             QueryString: true
           ViewerProtocolPolicy: allow-all
         Origins:
           - Id: DenoLandOrigin
-            DomainName: "deno.land.s3.amazonaws.com"
+            DomainName: "deno.land.s3-website-us-east-1.amazonaws.com"
             S3OriginConfig: {}
 
   DenoLandFunction:
@@ -36,10 +36,10 @@ Resources:
       CodeUri: src/
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
-      Role: !GetAtt DenoLandFunctionRoll.Arn
+      Role: !GetAtt DenoLandRoll.Arn
       AutoPublishAlias: live
 
-  DenoLandFunctionRoll:
+  DenoLandRoll:
     Type: "AWS::IAM::Role"
     Properties:
       Path: "/"
