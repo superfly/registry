@@ -12,4 +12,4 @@ before_install:
   - export PATH=$PATH:$HOME/.local/bin
 script:
   - ./format.sh
-	- ./test.sh
+  - ./test.sh
