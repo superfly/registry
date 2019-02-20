@@ -12,10 +12,10 @@ aws cloudformation package \
 
 aws cloudformation deploy \
   --template-file packaged.yaml \
-  --stack-name denoland0 \
-  --tags stack=denoland0 \
+  --stack-name denoland1 \
+  --tags stack=denoland1 \
   --capabilities CAPABILITY_IAM
 
-# aws cloudformation describe-stack-events --stack-name denoland0 | grep Err
-# aws cloudformation delete-stack --stack-name denoland0
-# aws cloudformation cancel-update-stack --stack-name denoland0
+# aws cloudformation describe-stack-events --stack-name denoland1 | grep Err
+# aws cloudformation delete-stack --stack-name denoland1
+# aws cloudformation cancel-update-stack --stack-name denoland1
