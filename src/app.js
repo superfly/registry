@@ -61,7 +61,14 @@ exports.indexPage = indexPage;
 exports.lambdaHandler = (event, context, callback) => {
 
   console.log("Received event:", JSON.stringify(event, null, 2));
-  const request = event.Records[0].cf.request;
+  const { request } = event.Records[0].cf
+
+  const olduri = request.uri;
+  request.uri = olduri.replace(/\/$/, "/index.html");
+  if (olduri !== request.uri) {
+    console.log("rewrite uri", olduri, request.uri);
+  }
+
   const pathname = request.uri;
   console.log("pathname", pathname);
 

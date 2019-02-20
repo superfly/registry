@@ -27,8 +27,10 @@ Resources:
           ViewerProtocolPolicy: allow-all
         Origins:
           - Id: DenoLandOrigin
-            DomainName: "deno.land.s3-website-us-east-1.amazonaws.com"
-            S3OriginConfig: {}
+            DomainName: "deno.land.s3.amazonaws.com"
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+
 
   DenoLandFunction:
     Type: AWS::Serverless::Function
@@ -36,27 +38,8 @@ Resources:
       CodeUri: src/
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
-      Role: !GetAtt DenoLandRoll.Arn
+      Role: "arn:aws:iam::996721126982:role/service-role/sam-app-role-name"
       AutoPublishAlias: live
-
-  DenoLandRoll:
-    Type: "AWS::IAM::Role"
-    Properties:
-      Path: "/"
-      ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          -
-            Sid: "AllowLambdaServiceToAssumeRole"
-            Effect: "Allow"
-            Action: 
-              - "sts:AssumeRole"
-            Principal:
-              Service: 
-                - "lambda.amazonaws.com"
-                - "edgelambda.amazonaws.com"
 
 Outputs:
   DenoLandFunction:

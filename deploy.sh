@@ -13,6 +13,7 @@ aws cloudformation package \
 aws cloudformation deploy \
   --template-file packaged.yaml \
   --stack-name denoland0 \
+  --tags stack=denoland0 \
   --capabilities CAPABILITY_IAM
 
 # aws cloudformation describe-stack-events --stack-name denoland0 | grep Err
