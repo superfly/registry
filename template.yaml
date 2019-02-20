@@ -11,6 +11,8 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
+        Aliases:
+          - deno.land
         Enabled: true
         PriceClass: PriceClass_100
         ViewerCertificate:
