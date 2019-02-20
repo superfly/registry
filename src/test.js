@@ -1,6 +1,12 @@
 const { lambdaHandler, proxy, indexPage } = require("./app");
 const assert = require("assert");
 
+const database = require("./database.json");
+// No dashes in the database.
+for (let key in database) {
+  assert(key.indexOf("-") < 0);
+}
+
 assert.equal(
   proxy("/x/std/foo/bar.js"),
   "https://raw.githubusercontent.com/denoland/deno_std/master/foo/bar.js"
@@ -14,9 +20,9 @@ let page = indexPage();
 assert(page.body.indexOf("html") >= 0);
 
 let event = require("./req1.json");
-let context = {};
+let context = {}; // TODO
 let counter = 0;
-let response = null
+let response = null;
 let callback = (_unused, response_) => {
   response = response_;
   counter++;

@@ -59,9 +59,8 @@ function indexPage() {
 exports.indexPage = indexPage;
 
 exports.lambdaHandler = (event, context, callback) => {
-
   console.log("Received event:", JSON.stringify(event, null, 2));
-  const { request } = event.Records[0].cf
+  const { request } = event.Records[0].cf;
 
   const olduri = request.uri;
   request.uri = olduri.replace(/\/$/, "/index.html");

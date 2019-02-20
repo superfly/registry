@@ -16,6 +16,6 @@ aws cloudformation deploy \
   --tags stack=denoland1 \
   --capabilities CAPABILITY_IAM
 
-# aws cloudformation describe-stack-events --stack-name denoland1 | grep Err
+aws cloudformation describe-stack-events --stack-name denoland1
 # aws cloudformation delete-stack --stack-name denoland1
 # aws cloudformation cancel-update-stack --stack-name denoland1
