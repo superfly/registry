@@ -59,7 +59,7 @@ function indexPage() {
 exports.indexPage = indexPage;
 
 exports.lambdaHandler = (event, context, callback) => {
-  console.log("Received event:", JSON.stringify(event, null, 2));
+  // console.log("Received event:", JSON.stringify(event, null, 2));
   const { request } = event.Records[0].cf;
 
   const olduri = request.uri;
@@ -69,7 +69,7 @@ exports.lambdaHandler = (event, context, callback) => {
   }
 
   const pathname = request.uri;
-  console.log("pathname", pathname);
+  // console.log("pathname", pathname);
 
   if (pathname === "/x/" || pathname === "/x" || pathname === "/x/index.html") {
     callback(null, indexPage());

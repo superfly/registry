@@ -8,99 +8,16 @@ const homepageHTML = /* HTML */ `
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Deno modules</title>
-      <meta
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        name="viewport"
-      />
-      <style>
-        body {
-          color: #111;
-          background: #f0f0f0;
-          margin: 80px 0;
-          font-family: Arial;
-          font-size: 20px;
-        }
 
-        main {
-          max-width: 800px;
-          margin: 0px auto;
-          padding: 0 10px;
-        }
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/default.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/github-gist.min.css">
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/languages/typescript.min.js"></script>
 
-        svg {
-          margin: 0px auto;
-        }
+      <link rel="stylesheet" href="/style.css" />
 
-        a {
-          color: #333;
-        }
-
-        p {
-          line-height: 1.5;
-          font-size: 0.9em;
-        }
-
-        .modules li {
-          font-size: 0.9em;
-          margin-bottom: 20px;
-        }
-
-        .modules code {
-          -webkit-user-select: all;
-          -moz-user-select: all;
-          -ms-user-select: all;
-          user-select: all;
-        }
-
-        pre {
-          background: #ddd;
-          padding: 15px;
-          word-wrap: normal;
-          overflow-x: auto;
-        }
-
-        code {
-          background: #ddd;
-          padding: 4px 8px;
-        }
-
-        a:hover {
-          color: #488;
-        }
-
-        a[href^="#"] {
-          /* Hash links */
-          text-decoration: none;
-          color: #3bace5;
-          margin-right: 0.5rem;
-        }
-        a[href^="#"]:hover {
-          text-decoration: underline;
-          color: #3d9bcc;
-        }
-
-        table {
-          border-collapse: collapse;
-          border-spacing: 0;
-        }
-
-        td,
-        th {
-          text-align: center;
-          vertical-align: middle;
-          border: 1px solid #aaa;
-          padding: 6px;
-        }
-
-        @media only screen and (max-device-width: 480px) {
-          body {
-            margin: 10px 0;
-          }
-        }
-      </style>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     </head>
     <body>
       <main>
