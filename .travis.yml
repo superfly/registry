@@ -5,10 +5,15 @@ cache:
 env:
   global:
   - AWS_DEFAULT_REGION=us-east-1
+  - AWS_ACCESS_KEY_ID=AKIAJ46NAV3CSXRZACJA
+  # AWS_SECRET_ACCESS_KEY=...
+  - secure: "qKSQ98ZoLZd99oZjRVJJCyQvjaROxrtbu/HbGNKSKYC99IURquoHq4dPHn1UK1WL25y43q+nruzm/IDc927zAKsTRKV0zXV2u19o890orx+BU4pw/MCtFM0j365s9WQ6f9BY6FdZKHLKDP/NU8K8t6MtqRNuKX0cjY56s0Kn/FUmTl/dlJpxcsVEWksWQWCq0I5JxCdPgCAvRMqkMXP3dgo7DytlfZ7351T5NPz/hGgKcfxQBSW/2/ycWsBanmOpPJyd85Sx/+XYz1Tr9luwD6jKlYP0WcwOM4laxHZHB4yKgMFchuwGNZ59l+9fck7kswDmBwlmEt32iVZ0P67W0weiExc6SUHwZNggt/lVoCs1VXe0kpPWv56YW7gjR2rzIAGn+w61UGkPef6CKFuKE/A8Yw3542Ac6F6twyTrdPvGQ/+j8U+GC6yQei4W7zzQ//x2RfVLj+v9US73+dQe9rGr37n+05Pz+CBk8PzdgFJRXH2A8fPaad3enPwdgkUNgXDvty6pqljOVil2RnGanQccL7jvksAEm7emwafSe9splrbccYsltK3MLFb8vEK/XRNbhuh5XqUxOcNrENZ0N4YVCJjjXkU2ws5kU/VYPUSn0pIJsqOqvIKxF3uavAGAkCyqkfMSyRw0De5UdxBR8Yw6TVItpJOuqG1jNtIQRCE="
 
 before_install:
 - pip install awscli
 #- npm install prettier
+install:
+- aws configure
 
 jobs:
   include:
@@ -19,7 +24,3 @@ jobs:
   - name: deploy
     script: ./deploy.sh
     if: branch = master
-    env:
-      - AWS_ACCESS_KEY_ID=AKIAIVRN52PLDBP55LBQ
-      # AWS_SECRET_ACCESS_KEY=...
-      #- secure: "P7s9t1Oamf8euxxRkthYubN20OWerctiQe9POENYFmdFSzpzX3JBfTYgHXW9M91FvNHSG3NEkMKefxEvrfezVC8Z2zYx96EgDKhkvy8FE0nIU1O1QNsPNcx7OWiG2JZHSPdCiwnOEK/YdqUJ78n9IMw+So7wcjL2e9y8QO/cZRBCXeqTBC/aWtu1JWzCAYF4LveQ9yRPF39sd58D46YfXUTwpYebt5NwVmO8E1Q7pBzs9bquf2U7IANxH1n+1TWex9dY9eYWRNhcDGT4jmP61bE1UxsPiwk8BUX+mj+huwKcVC+BIvN4E0z/cSWT6FzzQVJRMRKTpOHR4Lsb0FrgtOLOtTeqUfGPy8fNwecxx8tWAY4AZFmFgzVzggtG6nD7U6xSzZ32q9ElqsoVEiX/LNjg31cpqSLqDmEFT7DWkRUJIwzb5fHLd5jHN7OaYY6IZcOj/+Ihw37De51ocHtdnusP8u8g5UbsmMQbklF8d23qiKX2UPu6h5KlGQAg5MOhAg77swqQ/LtrHRHEiACaeT9/jSvvgwy9yOFyScCMgUCAkZZI2pTXTZtu4CNJ9YwNPhvNtBYsskU095A1DURW5gaFXkM7IltwXgb5QkN1SCrvnaQpnwXNQmxG/4Sl2wNHxP/ZVpsO/xFTHS2b0nQ6jsxlwLgjg+kd5bWiL1CrZCA="
