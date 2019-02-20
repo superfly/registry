@@ -12,8 +12,6 @@ env:
 before_install:
 - pip install awscli
 #- npm install prettier
-install:
-- aws configure
 
 jobs:
   include:
