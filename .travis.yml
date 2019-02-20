@@ -1,16 +1,13 @@
 language: python
+cache: pip
 env:
   global:
   - AWS_DEFAULT_REGION=us-east-1
-  - AWS_ACCESS_KEY_ID=AKIAJR55YEUPEHS4YU2Q
-  - secure: "RUXi4zQJoJkSVBQ6Qdamh2ajFITnIiq7V9DXetJwuVDtXRArHSIdAcXV8pGxqGWhXxkgmBt4qrEPRAx4vOCspUnQ2iny+drhnoJUE4qmQj/VHfrgHVVdzQOZxB8jp5TuOQSSi1RTCGt6L2VnEvGfUSYTYeNPUNsN+HUDmjL8i6yi9lidYdpzWypg+Tm26bLoyg/blI6/SXw3HfVBsipDdh6hQ5D3DhRDV7xpDlHSm0lgwUJg4F8hR788zN/TG5gEDzthsXHFRqeRhfIultMm8C1R24UbrxtjiV5Y6rdKQn0e022IUQeLuKi5AdSS1SX5cRxL/rttSzkZPQMMkVPfvXo7ABvhfB3oCSFhryNKM5/WxRBXOErBXA1WJ9vOX5Q7LgPLb8Alfr+mJtrKor7kuyq+2/HU5sMfPHHn86A3hQ7Lqy7qr4OXyBTGG8BD8TUkAIs4VQyosL0k8eK+eHtqDAOvKg1j3gqUORTtpz6m2N4gTGvD5fn6OeZpfRnRyRzXyAqp1bTxmBXbVXse5dYKzsefce+NzQCI8YyB5yYO+Utt0MB5zolblt1DgLehthIWkSlEGhQDwxstfD4wgk2D1Q/vtC2xBHUIkQ++c+iHxOoHI5rf8WP1kgPCTEnuxdna2zYQf15uzWz4zK7q/a2GEl0ILIYIAN264qe/hNkfMY4="
-before_install:
-- pip install awscli
-jobs:
-  include:
-  - name: test
-    script:
-    - "./test.sh"
-  - name: deploy
-    script: "./deploy.sh"
-    if: branch = master
+  - AWS_ACCESS_KEY_ID=AKIAJU3VDX3UWND273VA
+  - secure: "Rl/2TQP6Ty5+nldT+PKBhNEvPee9wLlVknCVwMS9SHAjPsqfp7ubNmybamF8+dAKoTWuNAsNd3BY8o0tn+V+iH6FXC1aY0xh4N/AJ3IU09XeCIYPDGd3/sQcVr08B2grc3nAnGO7UHVQBR0fhEh6tsgeSF6P2IogE/8IJW51jolLnJLukCTL7VW3cTtBaAPWzo9Tjq6eNh+5jao+Zf7NZwB3hXpdggomDMo6vYyd0GENpIYSphc2qBof3z9L7maSRj6lByS9dTTnar/IYRWuMAbx87uiPoLsD8IF1n/l7Z/En1wiVHJy65uOJ/WDbeQHoUzjvpH/LQD1hiPFyfmXw9i0w4dtiWcbTJZJhuf2DnCVxViWZlD1sQYqrhkj/LER6SOLZIgqC5RbhX68qVCCDC//k8LBm4nHjKDtMGVVje2c8vYNjDkNL9wXXIGHnyZlvdWfJD+WZrfr776Dmn1s5Rwi2ttqSkbN2Sgef1nSMxCoYczwyQFBsRg/jZ2E5zysFNNP8sd7Xk4U+27k5VQD3JEGpyUcbg23qxkoQDG23EjS3XVuvOxsodBFg3vg+rqI73cMPCf+O/HWs7llPuc1kuplIJRg3XwbPN4JsoAaSddOZOsNaIIGe+/+tbfZqQFp0p13HfxoLA/Ri6J+KlEkrhxdTRGSa/ADMQWdVz+sTVA="
+script: "./test.sh"
+deploy:
+  provider: script
+  script: "./deploy.sh"
+  on:
+    branch: deploy

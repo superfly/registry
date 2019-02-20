@@ -2,7 +2,12 @@
 
 set -ev
 
-bash test.sh
+#./test.sh
+
+# If travis doesn't have awscli, install it.
+if [[ ! `aws --version` ]]; then
+  pip install awscli -q
+fi
 
 print_errors() {
   aws cloudformation describe-stack-events --stack-name denoland1 \
