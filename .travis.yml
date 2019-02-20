@@ -1,24 +1,19 @@
 language: python
 cache:
   directories:
-  - $HOME/.local/bin
+  - "$HOME/.local/bin"
 env:
   global:
   - AWS_DEFAULT_REGION=us-east-1
   - AWS_ACCESS_KEY_ID=AKIAJUCO4YMRETUKNUFQ
-  # AWS_SECRET_ACCESS_KEY=...
-  - secure: "iVBXNlTnJjbx0YAX2Uz4yeKRftWLPcd6KURAR5VF0ryBoMFgD2RFWo9T4RyrfaOHqiZ0w6cN0883BHP+jeVu1CuC+9fYCOe93vIVFFR8k1lRl3r53aT+Tws3FuDXunxaWKoOs71lXn8cYon2SauOzGID83BkbWCR6Y1tHer4rWPBnY8B1Vq1a1wL29xuYOc/rr+AqKFSW/p5P1R4NktM8HHv329oa9/Dhfi7p6YCDxmHjhyBcfhA2IrfVejMfZnrekVHIqJ+DPYPqxcZcajjpjih6DHEkqOR7ewg5Y/HAjOtZ1LeirsSt7iv3diNAHPJNDHWaoyVHkm+NPCu1Vj6/si7ig45xZBuKv2etzoaZbIZv8W5BapR1VBeHOTK12UD7h45OIxo9WlmNqC+hMF8UzGQYQ3/jGi29w/517+kDM3qGuvClaXZSGsAH2htP1tAQpuU/keEide/kNzF3SbjzqKzFbzjfoQ9psFdSajT5Ok12u53MIN4K/lrWV2anTrvYTdbhaIu7SmIPWXBxZNS4gy8B3LhaWCbtQ+8OzGWdwr+3+OGUT5CGIDlQEEaN+qsF4yaPy8KkEpZ3Qa1FmktPSKyzfdnldVsoOD5pqb1ZTu0qeknBLZhmP0Dya4bp2FSXF55umr7Xzt4nyg6D2PG8s91BeQZ3+LyEZfBP9gKN9w="
-
+  - secure: GT9gDj0nwmcTrnVp0jwuR9Z8cXOIz+2pXRpsWFxMeSzWzCxA/V9qMQhP7ztu0Nqm6fHE3xnH3uGDFDxHmVZ1n/e1/w7tNrfzMe7fM87xZkUzibsqUpuwM7dxhX2Lk1Sj+kuUPn+uFOi+h+Bk7JlnhMFMnCMpIoAAic+6E3Gchy3QzPFilQk16/sH7HIw0dVMS2w/Tcelwlm2Xy05hC8jpv42x5ywZ0ZZ4u+ELlslEc7aB5xJVZyNRPfbWrpUUMaUzCwZN7bJ6izYUNFA71D0g1fIPdLy1zjsCI73jWqY7sntS/Gv4TszLQkQKIm6VBxYt+bpyFhJkuL8eeRW29PiQenTWjPMoPIPYydvHaYxlS4g5UMe3j0JY0Q0sFQjSoPmbJ0RFLm7pzaeVpxPBOrqD/b0ZzZm7V+FyjcpJ5l21gdttfb1sIDwlEuC4HYjip6AEACyhOR9c6vTaMxgz+x3ibwH8ObZ9lXxi3XiSvw+ZUtVTdcSWCL3vvuwGdc3g7utdAc3AngH+oB/I7XslWNljyB1vLlxveESQiOR15scEKqJtsZwkVZDcJBSLkI0wFZvtjBArnjUEAf4sLDTn+pDyZ0zsHLgK7O4e5rm7ZbOKpgkvHBYavX04W915U9a+5HrsuZ4eluqKctX6Ki2a3G4FR5kiyROAL/XSiFo1CZ92Ac=
 before_install:
 - pip install awscli
-#- npm install prettier
-
 jobs:
   include:
   - name: test
     script:
-    #- ./format.sh
-    - ./test.sh
+    - "./test.sh"
   - name: deploy
-    script: ./deploy.sh
+    script: "./deploy.sh"
     if: branch = master
