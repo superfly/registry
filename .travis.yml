@@ -1,23 +1,25 @@
 language: python
 cache:
   directories:
-    - $HOME/.local/bin
+  - $HOME/.local/bin
 env:
   global:
-   - AWS_DEFAULT_REGION=us-east-1
-   - AWS_ACCESS_KEY_ID=AKIAIVRN52PLDBP55LBQ
-   # AWS_SECRET_ACCESS_KEY=...
-   - secure: "ugSLNiUOQs53Oyy78EQyr2bu+//uoskbuoucenUUHM5I11M15yq1XuBJ26fIK1Jatza9pOGJNI8+4dSMWZW1GMFqgOZTKXv4kZFqU915/L1gsfS2bljB8pD1Qoq68ieGCQ49vBSFOWP24gtWBfKVJqU3HGHJgA5Ia/ujW3e37jr20xGqaBEcTjgin2fjm7VTao+hOOAMf47YkZNTEuLEHVPbDZM2tCCSlUdLpdyPB6mzX7XVmRxO26mtaHEeecivtaS6xXJXmns7OkntOzwgJi46B5uMgZz42UZ9qy1fCq8yCOyADb/Hu2WaJm7MIehHVhdC/siRzUUSOJ4N9gOPaFFAy5D28sDEa/IvlVriOwXirmDdPSlkTpwZ1NiisZXdZMaK6CWroaCHv9hYrJ7wKcntLQjLnnnskcyqxIVC7uEdlKHyLTNziyxol6oU/2Ym1NDoYWPDzcIeCkCr+xBapLXTVcg60YvcL/h+6wy5rp1v2h9R5B8HCCvmyc2X/FyaAmi8P7DYYHQL8+g+B0nGmzrrSGJzsEL7vChyiKfeNG7nnJKrU1+V8/+bPGsuPOK1XDTx80Uq56EzjHUPXy59zqtYL7ZZAIL0BQPxgm43yUCJfYSIKiwB9Odu+vb2DLDk5CLi45OHh2K7yi9m/lxlXla945az5OYO2l7a5m7rWF8="
+  - AWS_DEFAULT_REGION=us-east-1
 
 before_install:
-  - pip install awscli
-  #- npm install prettier
-script:
-  - ./format.sh
-  - ./test.sh
-deploy:
-  - provider: script
+- pip install awscli
+#- npm install prettier
+
+jobs:
+  include:
+  - name: test
+    script:
+    #- ./format.sh
+    - ./test.sh
+  - name: deploy
     script: ./deploy.sh
-    skip-cleanup: true
-    on:
-      branch: master
+    if: branch = master
+    env:
+      - AWS_ACCESS_KEY_ID=AKIAIVRN52PLDBP55LBQ
+      # AWS_SECRET_ACCESS_KEY=...
+      #- secure: "P7s9t1Oamf8euxxRkthYubN20OWerctiQe9POENYFmdFSzpzX3JBfTYgHXW9M91FvNHSG3NEkMKefxEvrfezVC8Z2zYx96EgDKhkvy8FE0nIU1O1QNsPNcx7OWiG2JZHSPdCiwnOEK/YdqUJ78n9IMw+So7wcjL2e9y8QO/cZRBCXeqTBC/aWtu1JWzCAYF4LveQ9yRPF39sd58D46YfXUTwpYebt5NwVmO8E1Q7pBzs9bquf2U7IANxH1n+1TWex9dY9eYWRNhcDGT4jmP61bE1UxsPiwk8BUX+mj+huwKcVC+BIvN4E0z/cSWT6FzzQVJRMRKTpOHR4Lsb0FrgtOLOtTeqUfGPy8fNwecxx8tWAY4AZFmFgzVzggtG6nD7U6xSzZ32q9ElqsoVEiX/LNjg31cpqSLqDmEFT7DWkRUJIwzb5fHLd5jHN7OaYY6IZcOj/+Ihw37De51ocHtdnusP8u8g5UbsmMQbklF8d23qiKX2UPu6h5KlGQAg5MOhAg77swqQ/LtrHRHEiACaeT9/jSvvgwy9yOFyScCMgUCAkZZI2pTXTZtu4CNJ9YwNPhvNtBYsskU095A1DURW5gaFXkM7IltwXgb5QkN1SCrvnaQpnwXNQmxG/4Sl2wNHxP/ZVpsO/xFTHS2b0nQ6jsxlwLgjg+kd5bWiL1CrZCA="
