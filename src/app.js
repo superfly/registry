@@ -2,6 +2,48 @@
 const DATABASE = require("./database.json");
 const homepageHTML = require("./homepage");
 const { assert } = console;
+const fetch = require("node-fetch");
+
+async function serveDir(u) {
+  return {
+    status: "200",
+    body: "Directories not yet supported.",
+    headers: {
+      "Content-Type": [
+        {
+          key: "Content-Type",
+          value: "text/plain"
+        }
+      ]
+    }
+  };
+}
+
+async function fetchRemote(u) {
+  // console.log("fetchRemote", u);
+
+  if (u.endsWith("/") || u.endsWith("/index.html")) {
+    return serveDir(u);
+  }
+
+  const res = await fetch(u);
+  // console.log("res", res);
+  const body = await res.text();
+  // console.log("body", body);
+
+  return {
+    status: "200",
+    body,
+    headers: {
+      "Content-Type": [
+        {
+          key: "Content-Type",
+          value: "text/plain"
+        }
+      ]
+    }
+  };
+}
 
 const notFound = {
   status: "404",
@@ -17,6 +59,9 @@ const notFound = {
 };
 
 function proxy(pathname) {
+  if (pathname.startsWith("/core") || pathname.startsWith("/std")) {
+    return proxy("/x" + pathname);
+  }
   if (!pathname.startsWith("/x/")) {
     return null;
   }
@@ -58,8 +103,36 @@ function indexPage() {
 }
 exports.indexPage = indexPage;
 
-exports.lambdaHandler = (event, context, callback) => {
-  // console.log("Received event:", JSON.stringify(event, null, 2));
+const sourceHtmlPrefix = /* HTML */ `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/default.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/github-gist.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/languages/typescript.min.js"></script>
+
+      <link rel="stylesheet" href="https://deno.land/style.css" />
+
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    </head>
+    <body>
+      <main><pre></pre></main>
+    </body>
+  </html>
+`;
+
+exports.lambdaHandler = async (event, context, callback) => {
+  context.callbackWaitsForEmtpyEventLoop = false;
+  // console.log("event:", JSON.stringify(event, null, 2));
+  // console.log("context:", JSON.stringify(context, null, 2));
   const { request } = event.Records[0].cf;
 
   const olduri = request.uri;
@@ -81,6 +154,9 @@ exports.lambdaHandler = (event, context, callback) => {
     // Do not process if not in proxy. Forwards to deno.land s3 bucket.
     return callback(null, request);
   }
+
+  //const response = await fetchRemote(l);
+  //callback(null, response);
 
   console.log("redirect", pathname, l);
   const response = {

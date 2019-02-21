@@ -1,0 +1,71 @@
+{
+  "Records": [
+    {
+      "cf": {
+        "config": {
+          "distributionDomainName": "dv4g3y42wun47.cloudfront.net",
+          "distributionId": "E2HLQND4HVTX7O",
+          "eventType": "origin-request"
+        },
+        "request": {
+          "clientIp": "68.173.125.147",
+          "headers": {
+            "user-agent": [
+              {
+                "key": "User-Agent",
+                "value": "Amazon CloudFront"
+              }
+            ],
+            "via": [
+              {
+                "key": "Via",
+                "value": "1.1 836d15812518886911b1ae2be813f462.cloudfront.net (CloudFront)"
+              }
+            ],
+            "x-forwarded-for": [
+              {
+                "key": "X-Forwarded-For",
+                "value": "68.173.125.147"
+              }
+            ],
+            "accept-encoding": [
+              {
+                "key": "Accept-Encoding",
+                "value": "gzip"
+              }
+            ],
+            "upgrade-insecure-requests": [
+              {
+                "key": "Upgrade-Insecure-Requests",
+                "value": "1"
+              }
+            ],
+            "host": [
+              {
+                "key": "Host",
+                "value": "deno.land.s3.amazonaws.com"
+              }
+            ],
+            "cache-control": [
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0"
+              }
+            ]
+          },
+          "method": "GET",
+          "origin": {
+            "s3": {
+              "authMethod": "none",
+              "customHeaders": {},
+              "domainName": "deno.land.s3.amazonaws.com",
+              "path": ""
+            }
+          },
+          "querystring": "",
+          "uri": "/std@v0.2.10/http/server.ts"
+        }
+      }
+    }
+  ]
+}

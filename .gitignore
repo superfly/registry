@@ -1,4 +1,5 @@
 packaged.yaml
 .idea
 .aws-sam
+src/node_modules/
 

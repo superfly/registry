@@ -1,0 +1,11 @@
+{
+  "callbackWaitsForEmptyEventLoop": true,
+  "logGroupName": "/aws/lambda/us-east-1.denoland1-DenoLandFunction-WHRRTS0VA8SI",
+  "logStreamName": "2019/02/20/[34]e529251a14f64b419d3bdfd54fe313b5",
+  "functionName": "us-east-1.denoland1-DenoLandFunction-WHRRTS0VA8SI",
+  "memoryLimitInMB": "128",
+  "functionVersion": "34",
+  "invokeid": "30ce2738-f61f-400a-99c2-e1cca090d0c7",
+  "awsRequestId": "30ce2738-f61f-400a-99c2-e1cca090d0c7",
+  "invokedFunctionArn": "arn:aws:lambda:us-east-1:996721126982:function:us-east-1.denoland1-DenoLandFunction-WHRRTS0VA8SI:34"
+}

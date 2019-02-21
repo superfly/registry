@@ -25,28 +25,26 @@ Resources:
             - EventType: origin-request
               LambdaFunctionARN: !Ref DenoLandFunction.Version
           ForwardedValues:
-            QueryString: true
-          ViewerProtocolPolicy: allow-all
+            QueryString: false
+            Headers:
+              - Accept
+          ViewerProtocolPolicy: redirect-to-https
         Origins:
           - Id: DenoLandOrigin
             DomainName: "deno.land.s3.amazonaws.com"
             S3OriginConfig:
               OriginAccessIdentity: ""
 
-
   DenoLandFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
+      AutoPublishAlias: live3
+      CodeUri: ./src/
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
       Role: "arn:aws:iam::996721126982:role/service-role/sam-app-role-name"
-      AutoPublishAlias: live
 
 Outputs:
-  DenoLandFunction:
-    Description: DenoLandFunction ARN
-    Value: !GetAtt DenoLandFunction.Arn
   DenoLandCloudFront:
     Description: DenoLandCloudFront DomainName
     Value: !GetAtt DenoLandCloudFront.DomainName
