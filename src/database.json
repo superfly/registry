@@ -63,6 +63,10 @@
     "url": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
     "repo": "https://github.com/pietvanzoen/deno-dotenv"
   },
+  "drash": {
+    "url": "https://raw.githubusercontent.com/crookse/deno-drash/${b}/mod.ts",
+    "repo": "https://github.com/crookse/deno-drash"
+  },
   "escape_string_regexp": {
     "url": "https://raw.githubusercontent.com/Sab94/escape-string-regexp/${b}",
     "repo": "https://github.com/Sab94/escape-string-regexp"
