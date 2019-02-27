@@ -16,7 +16,7 @@
     "repo": "https://github.com/denoland/deno_std/tree/master/bytes"
   },
   "bytes_formater": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/bytes_formater/${b}",
+    "url": "https://raw.githubusercontent.com/manyuanrong/bytes_formater/${b}/",
     "repo": "https://github.com/manyuanrong/bytes_formater"
   },
   "cli_spinners": {
@@ -32,7 +32,7 @@
     "repo": "https://github.com/denoland/deno"
   },
   "checksum": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/deno-checksum/${b}",
+    "url": "https://raw.githubusercontent.com/manyuanrong/deno-checksum/${b}/",
     "repo": "https://github.com/manyuanrong/deno-checksum"
   },
   "datetime": {
@@ -126,6 +126,10 @@
   "minimatch": {
     "url": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
     "repo": "https://github.com/chrisdothtml/deno-minimatch"
+  },
+  "mysql": {
+    "url": "https://raw.githubusercontent.com/manyuanrong/deno_mysql/${b}/",
+    "repo": "https://github.com/manyuanrong/deno_mysql"
   },
   "oak": {
     "url": "https://raw.githubusercontent.com/oakserver/oak/${b}/",
