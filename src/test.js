@@ -40,12 +40,12 @@ async function main() {
   event = require("./req3.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 3);
-  assert.equal(response.status, "200");
+  assert.equal(response.status, "302");
 
   event = require("./req4.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 4);
-  assert.equal(response.status, "200");
+  assert.equal(response.status, "302");
 }
 
 main();
