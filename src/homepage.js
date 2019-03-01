@@ -1,7 +1,7 @@
 const DATABASE = require("./database.json");
 
 const LOGO_PATH =
-  "https://raw.githubusercontent.com/denoland/deno/master/website/images/deno_logo_3.svg";
+  "https://raw.githubusercontent.com/denoland/deno/master/website/images/deno_logo_3.svg?sanitize=true";
 
 const homepageHTML = /* HTML */ `
   <!DOCTYPE html>
@@ -27,7 +27,7 @@ const homepageHTML = /* HTML */ `
     </head>
     <body>
       <main>
-        <img src="${LOGO_PATH}" width="150px" />
+        <img src="${LOGO_PATH}" width="200" />
         <h1>Deno Modules</h1>
 
         <p>This is a URL redirection service for Deno scripts.</p>
