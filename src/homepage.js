@@ -1,7 +1,7 @@
 const DATABASE = require("./database.json");
 
 const LOGO_PATH =
-  "https://raw.githubusercontent.com/denoland/deno/master/website/deno_logo_2.gif";
+  "https://raw.githubusercontent.com/denoland/deno/master/website/images/deno_logo_3.svg";
 
 const homepageHTML = /* HTML */ `
   <!DOCTYPE html>
@@ -59,7 +59,7 @@ const homepageHTML = /* HTML */ `
               .sort(([nameA], [nameB]) => nameA.localeCompare(nameB))
               .map(([name, { repo }]) => {
                 const link = `https://deno.land/x/${name}/`;
-                return `<li><a href=${link}>${link}</a> — <a href="${repo}">Repo</a></li>`;
+                return `<li>${link} — <a href="${repo}">Repo</a></li>`;
               })
               .join("\n")
           }
