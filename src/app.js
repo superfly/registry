@@ -155,9 +155,10 @@ exports.lambdaHandler = async (event, context, callback) => {
     return callback(null, request);
   }
 
-  //const response = await fetchRemote(l);
-  //callback(null, response);
+  const response = await fetchRemote(l);
+  callback(null, response);
 
+  /*
   console.log("redirect", pathname, l);
   const response = {
     status: "302",
@@ -177,4 +178,5 @@ exports.lambdaHandler = async (event, context, callback) => {
     }
   };
   callback(null, response);
+  */
 };
