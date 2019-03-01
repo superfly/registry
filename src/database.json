@@ -39,6 +39,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/datetime/",
     "repo": "https://github.com/denoland/deno_std/tree/master/datetime"
   },
+  "debuglog": {
+    "url": "https://raw.githubusercontent.com/rista404/deno-debug/${b}",
+    "repo": "https://github.com/rista404/deno-debug"
+  },
   "dedupe": {
     "url": "https://raw.githubusercontent.com/Sab94/dedupe/${b}",
     "repo": "https://github.com/Sab94/dedupe"
