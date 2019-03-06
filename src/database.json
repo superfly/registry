@@ -27,6 +27,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/colors/",
     "repo": "https://github.com/denoland/deno_std/tree/master/colors"
   },
+  "collections": {
+    "url": "https://raw.githubusercontent.com/hayd/deno-collections/${b}/",
+    "repo": "https://github.com/hayd/deno-collections"
+  },
   "core": {
     "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
     "repo": "https://github.com/denoland/deno"
