@@ -143,6 +143,10 @@
     "url": "https://raw.githubusercontent.com/oakserver/oak/${b}/",
     "repo": "https://github.com/oakserver/oak"
   },
+  "panoptes": {
+    "url": "https://raw.githubusercontent.com/TokenChingy/panoptes/${b}/",
+    "repo": "https://github.com/TokenChingy/panoptes/"
+  },
   "parseargs": {
     "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
     "repo": "https://github.com/bartlomieju/parseargs/"
