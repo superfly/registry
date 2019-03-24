@@ -131,6 +131,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
     "repo": "https://github.com/denoland/deno_std/tree/master/media_types"
   },
+  "moment": {
+    "url": "https://raw.githubusercontent.com/lisniuse/deno_moment/${b}/",
+    "repo": "https://github.com/lisniuse/deno_moment"
+  },
   "multipart": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/multipart/",
     "repo": "https://github.com/denoland/deno_std/tree/master/multipart"
