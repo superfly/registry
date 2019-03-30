@@ -3,6 +3,10 @@
     "url": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
     "repo": "https://github.com/zhmushan/abc"
   },
+  "base64": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/base64/${b}/",
+    "repo": "https://github.com/chiefbiiko/base64"
+  },
   "benching": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/benching/",
     "repo": "https://github.com/denoland/deno_std/tree/master/benching"
