@@ -151,6 +151,10 @@
     "url": "https://raw.githubusercontent.com/manyuanrong/deno_mysql/${b}/",
     "repo": "https://github.com/manyuanrong/deno_mysql"
   },
+  "normalize_diacritics": {
+    "url": "https://raw.githubusercontent.com/motss/deno_mod/${b}/normalize_diacritics/",
+    "repo": "https://github.com/motss/deno_mod/tree/master/normalize_diacritics"
+  },
   "oak": {
     "url": "https://raw.githubusercontent.com/oakserver/oak/${b}/",
     "repo": "https://github.com/oakserver/oak"
