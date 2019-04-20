@@ -91,6 +91,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/examples/",
     "repo": "https://github.com/denoland/deno_std/tree/master/examples"
   },
+  "expect": {
+    "url": "https://raw.githubusercontent.com/allain/expect/${b}/",
+    "repo": "https://github.com/allain/expect"
+  },
   "fen": {
     "url": "https://raw.githubusercontent.com/fen-land/deno-fen/${b}/",
     "repo": "https://github.com/fen-land/deno-fen"
