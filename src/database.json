@@ -43,6 +43,10 @@
     "url": "https://raw.githubusercontent.com/manyuanrong/deno-checksum/${b}/",
     "repo": "https://github.com/manyuanrong/deno-checksum"
   },
+  "databatcher": {
+    "url": "https://raw.githubusercontent.com/allain/deno-databatcher/${b}/",
+    "repo": "https://github.com/allain/deno-databatcher"
+  },
   "datetime": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/datetime/",
     "repo": "https://github.com/denoland/deno_std/tree/master/datetime"
