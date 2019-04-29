@@ -79,6 +79,10 @@
     "url": "https://raw.githubusercontent.com/rsp/deno-dirname/${b}/",
     "repo": "https://github.com/rsp/deno-dirname"
   },
+  "docable": {
+    "url": "https://raw.githubusercontent.com/crookse/docable/${b}/",
+    "repo": "https://github.com/crookse/docable"
+  },
   "dotenv": {
     "url": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
     "repo": "https://github.com/pietvanzoen/deno-dotenv"
