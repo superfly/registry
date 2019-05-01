@@ -23,6 +23,10 @@
     "url": "https://raw.githubusercontent.com/manyuanrong/bytes_formater/${b}/",
     "repo": "https://github.com/manyuanrong/bytes_formater"
   },
+  "case_style": {
+    "url": "https://raw.githubusercontent.com/zekth/deno-case-style/${b}/mod.ts",
+    "repo": "https://github.com/zekth/deno-case-style"
+  },
   "cli_spinners": {
     "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/mod.ts",
     "repo": "https://github.com/ameerthehacker/cli-spinners"
