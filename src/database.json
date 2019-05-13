@@ -24,8 +24,8 @@
     "repo": "https://github.com/manyuanrong/bytes_formater"
   },
   "case_style": {
-    "url": "https://raw.githubusercontent.com/zekth/deno-case-style/${b}/mod.ts",
-    "repo": "https://github.com/zekth/deno-case-style"
+    "url": "https://raw.githubusercontent.com/zekth/deno_case_style/${b}/mod.ts",
+    "repo": "https://github.com/zekth/deno_case_style"
   },
   "cli_spinners": {
     "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/mod.ts",
@@ -211,6 +211,10 @@
     "url": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
     "repo": "https://github.com/bokuweb/deno-pretty-assert"
   },
+  "random_interval": {
+    "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/mod.ts",
+    "repo": "https://github.com/zekth/deno_random_interval"
+  },
   "std": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
     "repo": "https://github.com/denoland/deno_std"
@@ -222,6 +226,10 @@
   "task_runner": {
     "url": "https://raw.githubusercontent.com/jinjor/deno-task-runner/${b}/",
     "repo": "https://github.com/jinjor/deno-task-runner"
+  },
+  "tiny_templates": {
+    "url": "https://raw.githubusercontent.com/zekth/deno_tiny_templates/${b}/mod.ts",
+    "repo": "https://github.com/zekth/deno_tiny_templates"
   },
   "testing": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/testing/",
