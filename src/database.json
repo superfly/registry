@@ -151,6 +151,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/log/",
     "repo": "https://github.com/denoland/deno_std/tree/master/log"
   },
+  "math": {
+    "url": "https://raw.githubusercontent.com/axetroy/deno-math/${b}/mod.ts",
+    "repo": "https://github.com/axetroy/deno-math"
+  },
   "media_types": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/media_types/",
     "repo": "https://github.com/denoland/deno_std/tree/master/media_types"
