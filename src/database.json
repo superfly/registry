@@ -95,6 +95,10 @@
     "url": "https://raw.githubusercontent.com/crookse/deno-drash/${b}/",
     "repo": "https://github.com/crookse/deno-drash"
   },
+  "easypath": {
+    "url": "https://raw.githubusercontent.com/zekth/deno_easypath/${b}/mod.ts",
+    "repo": "https://github.com/zekth/deno_easypath"
+  },
   "escape_string_regexp": {
     "url": "https://raw.githubusercontent.com/Sab94/escape-string-regexp/${b}",
     "repo": "https://github.com/Sab94/escape-string-regexp"
