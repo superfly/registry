@@ -219,6 +219,10 @@
     "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/mod.ts",
     "repo": "https://github.com/zekth/deno_random_interval"
   },
+  "slugify": {
+    "url": "https://raw.githubusercontent.com/jcardama/deno_slugify/${b}/",
+    "repo": "https://github.com/jcardama/deno_slugify"
+  },
   "std": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
     "repo": "https://github.com/denoland/deno_std"
