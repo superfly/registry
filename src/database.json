@@ -215,6 +215,10 @@
     "url": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
     "repo": "https://github.com/bokuweb/deno-pretty-assert"
   },
+  "purify": {
+    "url": "https://raw.githubusercontent.com/aynik/deno-purify/${b}/mod.ts",
+    "repo": "https://github.com/aynik/deno-purify"
+  },
   "random_interval": {
     "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/mod.ts",
     "repo": "https://github.com/zekth/deno_random_interval"
