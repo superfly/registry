@@ -223,6 +223,10 @@
     "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/mod.ts",
     "repo": "https://github.com/zekth/deno_random_interval"
   },
+  "semver": {
+    "url": "https://raw.githubusercontent.com/justjavac/deno-semver/${b}/",
+    "repo": "https://github.com/justjavac/deno-semver"
+  },
   "slugify": {
     "url": "https://raw.githubusercontent.com/jcardama/deno_slugify/${b}/",
     "repo": "https://github.com/jcardama/deno_slugify"
