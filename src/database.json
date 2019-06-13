@@ -27,6 +27,10 @@
     "url": "https://raw.githubusercontent.com/zekth/deno_case_style/${b}/mod.ts",
     "repo": "https://github.com/zekth/deno_case_style"
   },
+  "chunked": {
+    "url": "https://raw.githubusercontent.com/aynik/deno-chunked/${b}/mod.ts",
+    "repo": "https://github.com/aynik/deno-chunked"
+  },
   "cli_spinners": {
     "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/mod.ts",
     "repo": "https://github.com/ameerthehacker/cli-spinners"
