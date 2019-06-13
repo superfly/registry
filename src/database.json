@@ -87,6 +87,10 @@
     "url": "https://raw.githubusercontent.com/crookse/docable/${b}/",
     "repo": "https://github.com/crookse/docable"
   },
+  "dso": {
+    "url": "https://raw.githubusercontent.com/manyuanrong/dso/${b}/",
+    "repo": "https://github.com/manyuanrong/dso"
+  },
   "dotenv": {
     "url": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
     "repo": "https://github.com/pietvanzoen/deno-dotenv"
@@ -230,6 +234,10 @@
   "slugify": {
     "url": "https://raw.githubusercontent.com/jcardama/deno_slugify/${b}/",
     "repo": "https://github.com/jcardama/deno_slugify"
+  },
+  "sql_builder": {
+    "url": "https://raw.githubusercontent.com/manyuanrong/sql-builder/${b}/",
+    "repo": "https://github.com/manyuanrong/sql-builder"
   },
   "std": {
     "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
