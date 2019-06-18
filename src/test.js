@@ -1,7 +1,7 @@
 const { lambdaHandler, proxy, indexPage } = require("./app");
 const assert = require("assert");
 
-async function main() {
+async function tests() {
   const database = require("./database.json");
   // No dashes in the database.
   for (let key in database) {
@@ -9,12 +9,12 @@ async function main() {
   }
 
   assert.equal(
-    proxy("/x/std/foo/bar.js"),
-    "https://raw.githubusercontent.com/denoland/deno_std/master/foo/bar.js"
+    proxy("/x/install/foo/bar.js"),
+    "https://raw.githubusercontent.com/denoland/deno_install/master/foo/bar.js"
   );
   assert.equal(
-    proxy("/x/std@v0.1.2/foo/bar.js"),
-    "https://raw.githubusercontent.com/denoland/deno_std/v0.1.2/foo/bar.js"
+    proxy("/x/install@v0.1.2/foo/bar.js"),
+    "https://raw.githubusercontent.com/denoland/deno_install/v0.1.2/foo/bar.js"
   );
 
   let page = indexPage();
@@ -46,6 +46,15 @@ async function main() {
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 4);
   assert.equal(response.status, "302");
+}
+
+async function main() {
+  try {
+    await tests();
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
 }
 
 main();
