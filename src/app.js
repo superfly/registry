@@ -3,6 +3,7 @@ const DATABASE = require("./database.json");
 const homepageHTML = require("./homepage");
 const { assert } = console;
 const fetch = require("node-fetch");
+const path = require("path");
 
 async function serveDir(u) {
   return {
@@ -19,7 +20,7 @@ async function serveDir(u) {
   };
 }
 
-async function fetchRemote(u) {
+async function fetchRemote(u, pathname) {
   // console.log("fetchRemote", u);
 
   if (u.endsWith("/") || u.endsWith("/index.html")) {
@@ -33,12 +34,12 @@ async function fetchRemote(u) {
 
   return {
     status: "200",
-    body,
+    body: renderPrettyCode(pathname, body),
     headers: {
       "Content-Type": [
         {
           key: "Content-Type",
-          value: "text/plain"
+          value: "text/html"
         }
       ]
     }
@@ -158,6 +159,14 @@ exports.lambdaHandler = async (event, context, callback) => {
   //const response = await fetchRemote(l);
   //callback(null, response);
 
+  if (
+    request.headers.accept &&
+    request.headers.accept.some(header => header.value.includes("text/html"))
+  ) {
+    const response = await fetchRemote(l, pathname);
+    return callback(null, response);
+  }
+
   console.log("redirect", pathname, l);
   const response = {
     status: "302",
@@ -178,3 +187,53 @@ exports.lambdaHandler = async (event, context, callback) => {
   };
   callback(null, response);
 };
+
+function renderPrettyCode(pathname, code) {
+  const url = `https://deno.land${pathname}`;
+  const ext = path.extname(pathname);
+
+  let language = "";
+
+  switch (ext) {
+    case ".ts":
+      language = "typescript";
+      break;
+    case ".js":
+      language = "javascript";
+      break;
+    // otherwise rely on autodetection
+  }
+
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>${escapeHtml(url)}</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/default.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/styles/github-gist.min.css">
+      <link rel="stylesheet" href="https://deno.land/style.css">
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/highlight.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.14.2/build/languages/typescript.min.js"></script>
+  </head>
+  <body>
+      <h1>${escapeHtml(url)}</h1>
+      <pre><code class="${language}">${escapeHtml(code)}</code></pre>
+
+      <script>
+        hljs.initHighlighting();
+      </script>
+  </body>
+  </html>
+  `;
+}
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
