@@ -3,6 +3,10 @@
     "url": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
     "repo": "https://github.com/zhmushan/abc"
   },
+  "alosaur": {
+    "url": "https://raw.githubusercontent.com/irustm/alosaur/${b}/",
+    "repo": "https://github.com/irustm/alosaur"
+  },
   "base64": {
     "url": "https://raw.githubusercontent.com/chiefbiiko/base64/${b}/",
     "repo": "https://github.com/chiefbiiko/base64"
