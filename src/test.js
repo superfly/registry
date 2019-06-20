@@ -8,14 +8,16 @@ async function tests() {
     assert(key.indexOf("-") < 0);
   }
 
-  assert.equal(
-    proxy("/x/install/foo/bar.js"),
-    "https://raw.githubusercontent.com/denoland/deno_install/master/foo/bar.js"
-  );
-  assert.equal(
-    proxy("/x/install@v0.1.2/foo/bar.js"),
-    "https://raw.githubusercontent.com/denoland/deno_install/v0.1.2/foo/bar.js"
-  );
+  assert.deepEqual(proxy("/x/install/foo/bar.js"), {
+    url:
+      "https://raw.githubusercontent.com/denoland/deno_install/master/foo/bar.js",
+    repo: "https://github.com/denoland/deno_install"
+  });
+  assert.deepEqual(proxy("/x/install@v0.1.2/foo/bar.js"), {
+    url:
+      "https://raw.githubusercontent.com/denoland/deno_install/v0.1.2/foo/bar.js",
+    repo: "https://github.com/denoland/deno_install"
+  });
 
   let page = indexPage();
   assert(page.body.indexOf("html") >= 0);

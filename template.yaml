@@ -41,7 +41,7 @@ Resources:
       AutoPublishAlias: live3
       CodeUri: ./src/
       Handler: app.lambdaHandler
-      Runtime: nodejs8.10
+      Runtime: nodejs10.x
       Role: "arn:aws:iam::996721126982:role/service-role/sam-app-role-name"
 
 Outputs:
