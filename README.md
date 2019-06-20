@@ -10,3 +10,11 @@ other content). For example:
 ```
 deno -A https://deno.land/x/std@v0.2.7/http/file_server.ts
 ```
+
+To run the dev server (you shouldn’t need to do this to add a package to the registry):
+
+```shellsession
+$ cd src
+$ npm install
+$ npm start
+```
