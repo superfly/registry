@@ -3,6 +3,10 @@
     "url": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
     "repo": "https://github.com/zhmushan/abc"
   },
+  "aead_chacha20_poly1305": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/aead-chacha20-poly1305/${b}/",
+    "repo": "https://github.com/chiefbiiko/aead-chacha20-poly1305"
+  },
   "alosaur": {
     "url": "https://raw.githubusercontent.com/irustm/alosaur/${b}/",
     "repo": "https://github.com/irustm/alosaur"
@@ -107,6 +111,10 @@
     "url": "https://raw.githubusercontent.com/fen-land/deno-fen/${b}/",
     "repo": "https://github.com/fen-land/deno-fen"
   },
+  "hmac": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/hmac/${b}/",
+    "repo": "https://github.com/chiefbiiko/hmac"
+  },
   "install": {
     "url": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
     "repo": "https://github.com/denoland/deno_install"
@@ -159,6 +167,10 @@
     "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
     "repo": "https://github.com/bartlomieju/parseargs/"
   },
+  "pbkdf2": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/pbkdf2/${b}/",
+    "repo": "https://github.com/chiefbiiko/pbkdf2"
+  },
   "pipeline": {
     "url": "https://raw.githubusercontent.com/Focinfi/deno-pipeline/${b}/",
     "repo": "https://github.com/Focinfi/deno-pipeline"
@@ -186,6 +198,22 @@
   "semver": {
     "url": "https://raw.githubusercontent.com/justjavac/deno-semver/${b}/",
     "repo": "https://github.com/justjavac/deno-semver"
+  },
+  "sha1": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/sha1/${b}/",
+    "repo": "https://github.com/chiefbiiko/sha1"
+  },
+  "sha256": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/sha256/${b}/",
+    "repo": "https://github.com/chiefbiiko/sha256"
+  },
+  "sha512": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/sha512/${b}/",
+    "repo": "https://github.com/chiefbiiko/sha512"
+  },
+  "siphash24": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/siphash24/${b}/",
+    "repo": "https://github.com/chiefbiiko/siphash24"
   },
   "slugify": {
     "url": "https://raw.githubusercontent.com/jcardama/deno_slugify/${b}/",
