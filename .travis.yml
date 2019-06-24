@@ -1,5 +1,8 @@
-language: python
-cache: pip
+language: node_js
+node_js: 8
+cache:
+  - pip
+  - npm
 env:
   global:
   - AWS_DEFAULT_REGION=us-east-1

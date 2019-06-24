@@ -1,4 +1,4 @@
-const { lambdaHandler, proxy, indexPage } = require("./app");
+const { lambdaHandler, proxy } = require("./app");
 const assert = require("assert");
 
 async function tests() {
@@ -18,9 +18,6 @@ async function tests() {
       "https://raw.githubusercontent.com/denoland/deno_install/v0.1.2/foo/bar.js",
     repo: "https://github.com/denoland/deno_install"
   });
-
-  let page = indexPage();
-  assert(page.body.indexOf("html") >= 0);
 
   let event = require("./req1.json");
   const context = require("./context1.json");
@@ -48,6 +45,26 @@ async function tests() {
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 4);
   assert.equal(response.status, "302");
+
+  event = require("./req5.json");
+  await lambdaHandler(event, context, callback);
+  assert.equal(counter, 5);
+  assert.equal(response.status, "404");
+
+  event = require("./req6.json");
+  await lambdaHandler(event, context, callback);
+  assert.equal(counter, 6);
+  assert.equal(response.status, "200");
+
+  event = require("./req7.json");
+  await lambdaHandler(event, context, callback);
+  assert.equal(counter, 7);
+  assert.equal(response.status, "200");
+
+  event = require("./req8.json");
+  await lambdaHandler(event, context, callback);
+  assert.equal(counter, 8);
+  assert.equal(response.status, "501");
 }
 
 async function main() {
