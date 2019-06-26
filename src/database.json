@@ -24,15 +24,15 @@
     "repo": "https://github.com/manyuanrong/bytes_formater"
   },
   "case_style": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_case_style/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/zekth/deno_case_style/${b}/",
     "repo": "https://github.com/zekth/deno_case_style"
   },
   "chunked": {
-    "url": "https://raw.githubusercontent.com/aynik/deno-chunked/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/aynik/deno-chunked/${b}/",
     "repo": "https://github.com/aynik/deno-chunked"
   },
   "cli_spinners": {
-    "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/",
     "repo": "https://github.com/ameerthehacker/cli-spinners"
   },
   "collections": {
@@ -96,7 +96,7 @@
     "repo": "https://github.com/crookse/deno-drash"
   },
   "easypath": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_easypath/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/zekth/deno_easypath/${b}/",
     "repo": "https://github.com/zekth/deno_easypath"
   },
   "escape_string_regexp": {
@@ -136,8 +136,8 @@
     "repo": "https://github.com/lodash/lodash"
   },
   "math": {
-    "url": "https://raw.githubusercontent.com/axetroy/deno-math/${b}/mod.ts",
-    "repo": "https://github.com/axetroy/deno-math"
+    "url": "https://raw.githubusercontent.com/axetroy/deno_math/${b}/",
+    "repo": "https://github.com/axetroy/deno_math"
   },
   "moment": {
     "url": "https://raw.githubusercontent.com/lisniuse/deno_moment/${b}/",
@@ -188,11 +188,11 @@
     "repo": "https://github.com/bokuweb/deno-pretty-assert"
   },
   "purify": {
-    "url": "https://raw.githubusercontent.com/aynik/deno-purify/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/aynik/deno-purify/${b}/",
     "repo": "https://github.com/aynik/deno-purify"
   },
   "random_interval": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/",
     "repo": "https://github.com/zekth/deno_random_interval"
   },
   "semver": {
@@ -232,7 +232,7 @@
     "repo": "https://github.com/jinjor/deno-task-runner"
   },
   "tiny_templates": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_tiny_templates/${b}/mod.ts",
+    "url": "https://raw.githubusercontent.com/zekth/deno_tiny_templates/${b}/",
     "repo": "https://github.com/zekth/deno_tiny_templates"
   },
   "uuid": {
