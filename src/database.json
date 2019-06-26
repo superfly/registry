@@ -63,6 +63,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno/${b}",
     "repo": "https://github.com/denoland/deno"
   },
+  "deno_init": {
+    "url": "https://raw.githubusercontent.com/maxuuell/deno_init/${b}/mod.ts",
+    "repo": "https://github.com/maxuuell/deno_init"
+  },
   "denoget": {
     "url": "https://raw.githubusercontent.com/syumai/denoget/${b}/",
     "repo": "https://github.com/syumai/denoget"
