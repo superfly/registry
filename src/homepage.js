@@ -1,7 +1,6 @@
 const DATABASE = require("./database.json");
 
-const LOGO_PATH =
-  "https://raw.githubusercontent.com/denoland/deno/master/website/images/deno_logo_3.svg?sanitize=true";
+const LOGO_PATH = "https://deno.land/images/deno_logo_4.gif";
 
 const homepageHTML = /* HTML */ `
   <!DOCTYPE html>
@@ -27,54 +26,58 @@ const homepageHTML = /* HTML */ `
     </head>
     <body>
       <main>
-        <img src="${LOGO_PATH}" width="200" />
+        <a href="/"><img src="${LOGO_PATH}" width="200" /></a>
         <h1>Deno Modules</h1>
 
-        <p>This is a URL redirection service for Deno scripts.</p>
+        <p>This is a code hosting service for Deno scripts.</p>
 
         <p>
-          The basic format is
+          The basic format of code URLs is
           <code>https://deno.land/x/MODULE_NAME@BRANCH/SCRIPT.ts</code>. If you
           leave out the branch, it will default to master.
         </p>
+
+        <p>
+          Functionality built-in to Deno is not listed here. The built-in
+          runtime is documented at
+          <a href="https://deno.land/typedoc/">//deno.land/typedoc</a>
+          and in <a href="https://deno.land/manual.html">the manual</a>.
+        </p>
+
         <h2>Standard</h2>
 
-        <ul class="modules">
+        <p><a href="https://deno.land/std/README.md">//deno.land/std</a></p>
+        <ul>
+          <li>maintained by the Deno authors,</li>
+          <li>have no external dependencies,</li>
+          <li>are MIT or Apache licensed, and</li>
           <li>
-            <code>https://deno.land/std/</code>
-            <a href="https://github.com/denoland/deno_std">repo</a>
-          </li>
-
-          <li>
-            <code>https://deno.land/core/</code>
-            <a href="https://github.com/denoland/deno">repo</a>
+            conform to
+            <a href="https://deno.land/style_guide.html">the style guide</a>.
           </li>
         </ul>
 
         <h2 id="modules">Third Party</h2>
 
-        <ul class="modules">
-          ${
-            Object.entries(DATABASE)
-              .sort(([nameA], [nameB]) => nameA.localeCompare(nameB))
-              .map(([name, { repo }]) => {
-                const link = `https://deno.land/x/${name}/`;
-                return `<li>${link} — <a href="${repo}">Repo</a></li>`;
-              })
-              .join("\n")
-          }
-        </ul>
-
-        <br />
-        <h2 id="contributing">Contributing</h2>
-
         <p>
-          To add a module send a pull request to
-          <a href="https://github.com/denoland/registry">
-            https://github.com/denoland/registry
-          </a>
-          with changes in <code>src/database.json</code>
+          To add to this list, edit
+          <a
+            href="https://github.com/denoland/registry/blob/master/src/database.json"
+            >database.json</a
+          >.
         </p>
+
+        <p>${Object.entries(DATABASE).length} third party modules:</p>
+
+        <ul class="modules">
+          ${Object.entries(DATABASE)
+            .sort(([nameA], [nameB]) => nameA.localeCompare(nameB))
+            .map(([name, { repo }]) => {
+              const link = `https://deno.land/x/${name}/README.md`;
+              return `<li><a href="${link}">${name}</a></li>`;
+            })
+            .join("\n")}
+        </ul>
       </main>
     </body>
   </html>
