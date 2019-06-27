@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
       throw err;
     }
 
-    res.statusCode = result.status;
+    res.statusCode = Number(result.status || 404);
     const headers = Object.values(result.headers).reduce((a, b) => a.concat(b));
     for (const header of headers) {
       res.setHeader(header.key, header.value);
