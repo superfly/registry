@@ -19,7 +19,7 @@ async function tests() {
     repo: "https://github.com/denoland/deno_install"
   });
 
-  let event = require("./req1.json");
+  let event = require("./testdata/req1.json");
   const context = require("./context1.json");
   let counter = 0;
   let response = null;
@@ -31,37 +31,37 @@ async function tests() {
   assert.equal(counter, 1);
   assert.equal(response.uri, "/deno_logo_2.gif");
 
-  event = require("./req2.json");
+  event = require("./testdata/req2.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 2);
   assert.equal(response.uri, "/index.html");
 
-  event = require("./req3.json");
+  event = require("./testdata/req3.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 3);
   assert.equal(response.status, "200");
 
-  event = require("./req4.json");
+  event = require("./testdata/req4.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 4);
   assert.equal(response.status, "200");
 
-  event = require("./req5.json");
+  event = require("./testdata/req5.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 5);
   assert.equal(response.status, "404");
 
-  event = require("./req6.json");
+  event = require("./testdata/req6.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 6);
   assert.equal(response.status, "200");
 
-  event = require("./req7.json");
+  event = require("./testdata/req7.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 7);
   assert.equal(response.status, "200");
 
-  event = require("./req8.json");
+  event = require("./testdata/req8.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 8);
   assert.equal(response.status, "501");
