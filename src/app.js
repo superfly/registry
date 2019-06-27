@@ -63,7 +63,7 @@ exports.lambdaHandler = async function lambdaHandler(event, context, callback) {
     // Do not process if not in proxy. Forwards to deno.land s3 bucket.
     return callback(null, request);
   }
-  const { url: l, repo } = result;
+  const { url, repo } = result;
 
   // URLs from error messages, i.e. https://deno.land/std/http/server.ts:10:24
   const lineAndColumnMatch = pathname.match(/:(\d+)(?::\d+)?$/);
@@ -80,8 +80,71 @@ exports.lambdaHandler = async function lambdaHandler(event, context, callback) {
   ) {
     const response = await renderPretty(pathname, result);
     return callback(null, response);
+  } else {
+    // If we're not displaying HTML, proxy the body instead of redirecting.
+    const fetch = require("node-fetch");
+    const res = await fetch(url);
+    const lambdaRes = await fetch2LambdaResponse(res);
+    return callback(null, lambdaRes);
   }
-
-  console.log("redirect", pathname, l);
-  callback(null, response.redirect(l));
 };
+
+const blacklistedHeaders = [
+  // https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-blacklisted-headers
+  "Connection",
+  "Expect",
+  "Keep-alive",
+  "Proxy-Authenticate",
+  "Proxy-Authorization",
+  "Proxy-Connection",
+  "Trailer",
+  "Upgrade",
+  "X-Accel-Buffering",
+  "X-Accel-Charset",
+  "X-Accel-Limit-Rate",
+  "X-Accel-Redirect",
+  "X-Amz-Cf-*",
+  "X-Amzn-*",
+  "X-Cache",
+  "X-Edge-*",
+  "X-Forwarded-Proto",
+  "X-Real-IP",
+  // Read only headers
+  "Content-Length",
+  "Host",
+  "Transfer-Encoding",
+  "Via",
+  // Read-only Headers for CloudFront Origin Request Events
+  "Accept-Encoding",
+  "If-Modified-Since",
+  "If-None-Match",
+  "If-Range",
+  "If-Unmodified-Since",
+  "Range",
+  // Others
+  "x-github-request-id",
+  "x-fastly-request-id",
+  "x-geo-block-list",
+  "x-served-by"
+].map(n => n.toLowerCase());
+
+function isBlacklistedHeader(name) {
+  return blacklistedHeaders.indexOf(name.toLowerCase()) >= 0;
+}
+
+async function fetch2LambdaResponse(res) {
+  if (res.status === 404) return response.notFound();
+  // TODO(ry) use res.arrayBuffer() instead of res.text().
+  const body = await res.text();
+  const headers = {};
+  res.headers.forEach(function(value, name) {
+    if (!isBlacklistedHeader(name)) {
+      headers[name] = [{ key: name, value }];
+    }
+  });
+  return {
+    status: res.status,
+    body,
+    headers
+  };
+}
