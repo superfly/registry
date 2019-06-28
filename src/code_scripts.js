@@ -98,6 +98,7 @@ const selection = () => {
   });
 };
 
+// prettier-ignore
 module.exports = /* HTML */ `
   <script>
     (${highlight})();
