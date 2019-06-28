@@ -8,6 +8,7 @@ const converter = new Converter({ tables: true });
 module.exports = function renderMarkdown(pathname, source, repo) {
   const url = `https://deno.land${pathname}`;
 
+  // prettier-ignore
   return response.success(/* HTML */ `
     <!DOCTYPE html>
     <html lang="en">

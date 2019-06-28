@@ -26,7 +26,7 @@ const homepageHTML = /* HTML */ `
     </head>
     <body>
       <main>
-        <a href="/"><img src="${LOGO_PATH}" width="200" /></a>
+        <a href="/"><img src="${LOGO_PATH}" width="200"/></a>
         <h1>Deno Modules</h1>
 
         <p>This is a code hosting service for Deno scripts.</p>
