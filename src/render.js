@@ -76,7 +76,12 @@ const blacklistedHeaders = [
   "x-github-request-id",
   "x-fastly-request-id",
   "x-geo-block-list",
-  "x-served-by"
+  "x-served-by",
+  // TODO(ry) We shouldn't need to filter Content-Encoding
+  // but because we do fetchResponse.text() instead of arrayBuffer()
+  // we need to remove any encoding. See:
+  // https://github.com/denoland/deno_install/issues/65
+  "Content-Encoding"
 ].map(n => n.toLowerCase());
 
 function isBlacklistedHeader(name) {
