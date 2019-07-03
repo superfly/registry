@@ -59,7 +59,7 @@ module.exports = function renderCode(pathname, code, repo) {
       </head>
       <body>
         <a href="${repo}">View repository on GitHub</a>
-        <pre><code class="${path.extname(pathname) ||
+        <pre><code class="${path.extname(pathname).slice(1) ||
           "no-highlight"}">${lineNumberedCode}</code></pre>
         ${scripts}
       </body>
