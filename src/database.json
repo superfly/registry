@@ -23,6 +23,10 @@
     "url": "https://raw.githubusercontent.com/manyuanrong/bytes_formater/${b}/",
     "repo": "https://github.com/manyuanrong/bytes_formater"
   },
+  "case": {
+    "url": "https://raw.githubusercontent.com/justjavac/deno-change-case/${b}/",
+    "repo": "https://github.com/justjavac/deno-change-case"
+  },
   "case_style": {
     "url": "https://raw.githubusercontent.com/zekth/deno_case_style/${b}/",
     "repo": "https://github.com/zekth/deno_case_style"
