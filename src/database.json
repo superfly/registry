@@ -35,6 +35,10 @@
     "url": "https://raw.githubusercontent.com/aynik/deno-chunked/${b}/",
     "repo": "https://github.com/aynik/deno-chunked"
   },
+  "ci": {
+    "url": "https://raw.githubusercontent.com/justjavac/deno-ci/${b}/",
+    "repo": "https://github.com/justjavac/deno-ci"
+  },
   "cli_spinners": {
     "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/",
     "repo": "https://github.com/ameerthehacker/cli-spinners"
