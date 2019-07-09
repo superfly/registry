@@ -17,7 +17,7 @@ Resources:
         PriceClass: PriceClass_100
         ViewerCertificate:
           AcmCertificateArn: "arn:aws:acm:us-east-1:996721126982:certificate/17ec3785-d60f-46af-837f-fbeefdb31203"
-          MinimumProtocolVersion: TLSv1.1_2016
+          MinimumProtocolVersion: TLSv1
           SslSupportMethod: sni-only
         DefaultCacheBehavior:
           TargetOriginId: DenoLandOrigin
