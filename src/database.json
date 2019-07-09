@@ -231,6 +231,10 @@
     "url": "https://raw.githubusercontent.com/jcardama/deno_slugify/${b}/",
     "repo": "https://github.com/jcardama/deno_slugify"
   },
+  "smtp": {
+    "url": "https://raw.githubusercontent.com/manyuanrong/deno-smtp/${b}/",
+    "repo": "https://github.com/manyuanrong/deno-smtp"
+  },
   "sql_builder": {
     "url": "https://raw.githubusercontent.com/manyuanrong/sql-builder/${b}/",
     "repo": "https://github.com/manyuanrong/sql-builder"
