@@ -4,7 +4,7 @@ module.exports = function createStyle(maxNumberLength) {
   return css`
     body {
       --highlight-border-radius: 5px;
-      max-width: calc(80ex + ${maxNumberLength + 3}ex);
+      max-width: none;
     }
     pre,
     code.hljs {
