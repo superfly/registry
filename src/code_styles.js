@@ -1,5 +1,7 @@
 const css = String.raw; // Prettier/syntax highlighting hack
 
+const breakpoint = "(max-device-width: 480px)";
+
 module.exports = function createStyle(maxNumberLength) {
   return css`
     body {
@@ -12,6 +14,19 @@ module.exports = function createStyle(maxNumberLength) {
       padding-left: 0;
       padding-right: 0;
       background: transparent;
+      -webkit-text-size-adjust: 100%;
+    }
+    @media ${breakpoint} {
+      pre {
+        width: 100vw;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+      code.hljs {
+        /* 49em = 80 characters fitting on the line */
+        min-width: calc(49em + ${maxNumberLength + 4}ex);
+        -webkit-overflow-scrolling: touch;
+      }
     }
     pre a {
       color: inherit;
@@ -62,3 +77,4 @@ module.exports = function createStyle(maxNumberLength) {
     }
   `;
 };
+module.exports.breakpoint = breakpoint;

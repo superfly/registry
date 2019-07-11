@@ -1,3 +1,5 @@
+const { breakpoint } = require("./code_styles");
+
 const highlight = () => {
   const code = document.querySelector("pre code");
   if (code.className === "no-highlight") {
@@ -98,6 +100,59 @@ const selection = () => {
   });
 };
 
+const handleScrolling = () => {
+  const query = window.matchMedia(breakpoint);
+  const pre = document.querySelector("pre");
+  const lineNumberWidth = Math.round(
+    parseFloat(
+      getComputedStyle(document.querySelector(".numbered-line")).paddingLeft
+    )
+  );
+  const scrollOffset = lineNumberWidth - 8;
+
+  if (query.matches) {
+    pre.scrollLeft = scrollOffset;
+  }
+  query.onchange = ({ matches }) => {
+    if (matches) {
+      pre.scrollLeft += scrollOffset;
+    } else {
+      pre.scrollLeft -= scrollOffset;
+      if (pre.scrollLeft < 0) pre.scrollLeft = 0;
+    }
+  };
+
+  let timeout;
+  pre.addEventListener("scroll", event => {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      let target = pre.scrollLeft;
+      if (pre.scrollLeft < scrollOffset / 2) {
+        target = 0;
+      } else if (pre.scrollLeft < scrollOffset) {
+        target = scrollOffset;
+      }
+      if (target !== pre.scrollLeft) {
+        const initialScroll = pre.scrollLeft;
+        const delta = target - initialScroll;
+        let lastTime = performance.now()
+        requestAnimationFrame(function cb() {
+          const time = performance.now()
+          const dt = time - lastTime
+          lastTime = time
+          pre.scrollLeft =
+            delta < 0
+              ? Math.max(target, pre.scrollLeft - dt / 10)
+              : Math.min(pre.scrollLeft + dt / 10, target);
+          if (pre.scrollLeft !== target) {
+            requestAnimationFrame(cb);
+          }
+        });
+      }
+    }, 100);
+  });
+};
+
 // prettier-ignore
 module.exports = /* HTML */ `
   <script>
@@ -105,5 +160,9 @@ module.exports = /* HTML */ `
   </script>
   <script>
     (${selection})();
+  </script>
+  <script>
+    const breakpoint = ${JSON.stringify(breakpoint)};
+    (${handleScrolling})();
   </script>
 `;
