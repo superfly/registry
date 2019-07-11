@@ -107,6 +107,10 @@
     "url": "https://raw.githubusercontent.com/crookse/deno-drash/${b}/",
     "repo": "https://github.com/crookse/deno-drash"
   },
+  "eaisercolors": {
+    "url": "https://raw.githubusercontent.com/herohamp/EaiserColors/${b}/",
+    "repo": "https://github.com/herohamp/EaiserColors"
+  },
   "easypath": {
     "url": "https://raw.githubusercontent.com/zekth/deno_easypath/${b}/",
     "repo": "https://github.com/zekth/deno_easypath"
