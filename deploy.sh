@@ -15,6 +15,7 @@ print_errors() {
   false
 }
 
+(cd src && npm install)
 aws cloudformation validate-template --template-body "`cat template.yaml`"
 
 aws cloudformation package \
