@@ -43,6 +43,10 @@
     "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/",
     "repo": "https://github.com/ameerthehacker/cli-spinners"
   },
+  "clone": {
+    "url": "https://raw.githubusercontent.com/ekaragodin/clone/${b}/",
+    "repo": "https://github.com/ekaragodin/clone"
+  },
   "collections": {
     "url": "https://raw.githubusercontent.com/hayd/deno-collections/${b}/",
     "repo": "https://github.com/hayd/deno-collections"
