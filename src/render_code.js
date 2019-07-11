@@ -1,5 +1,5 @@
 const path = require("path");
-const linkifyUrls = require("linkify-urls");
+const linkify = require("linkify-lite");
 
 const response = require("./response");
 const { escapeHtml } = require("./utils");
@@ -23,7 +23,7 @@ module.exports = function renderCode(pathname, code, repo) {
           class="line-number"
           data-line="${line}"
         ></a
-        >${linkifyUrls(content)}</span
+        >${linkify(content)}</span
       >`.replace(/\n\s+/g, " ");
     })
     .join("\n");
