@@ -139,6 +139,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
     "repo": "https://github.com/denoland/deno_install"
   },
+  "jbq": {
+    "url": "https://raw.githubusercontent.com/krnik/jbq/${b}/",
+    "repo": "https://github.com/krnik/jbq"
+  },
   "ky": {
     "url": "https://raw.githubusercontent.com/sindresorhus/ky/${b}/",
     "repo": "https://github.com/sindresorhus/ky"
