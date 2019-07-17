@@ -25,7 +25,7 @@ Resources:
             - EventType: origin-request
               LambdaFunctionARN: !Ref DenoLandFunction.Version
           ForwardedValues:
-            QueryString: false
+            QueryString: true
             Headers:
               - Accept
           ViewerProtocolPolicy: redirect-to-https
@@ -38,6 +38,7 @@ Resources:
   DenoLandFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Timeout: 15
       AutoPublishAlias: live3
       CodeUri: ./src/
       Handler: app.lambdaHandler

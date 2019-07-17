@@ -2,6 +2,7 @@
 const DATABASE = require("./database.json");
 const homepageHTML = require("./homepage");
 const { assert } = console;
+const qs = require("querystring");
 
 const response = require("./response");
 const renderPretty = require("./render");
@@ -74,6 +75,11 @@ exports.lambdaHandler = async function lambdaHandler(event, context, callback) {
     );
   }
 
-  const response_ = await renderPretty(request, pathname, result);
+  const response_ = await renderPretty(
+    request,
+    pathname,
+    qs.parse(request.querystring),
+    result
+  );
   return callback(null, response_);
 };

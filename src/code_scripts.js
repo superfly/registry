@@ -135,11 +135,11 @@ const handleScrolling = () => {
       if (target !== pre.scrollLeft) {
         const initialScroll = pre.scrollLeft;
         const delta = target - initialScroll;
-        let lastTime = performance.now()
+        let lastTime = performance.now();
         requestAnimationFrame(function cb() {
-          const time = performance.now()
-          const dt = time - lastTime
-          lastTime = time
+          const time = performance.now();
+          const dt = time - lastTime;
+          lastTime = time;
           pre.scrollLeft =
             delta < 0
               ? Math.max(target, pre.scrollLeft - dt / 10)

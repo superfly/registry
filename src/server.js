@@ -4,12 +4,14 @@ const https = require("https");
 const { lambdaHandler } = require("../src/app");
 
 function createLambdaRequest(req) {
+  const [uri, ...query] = req.url.split("?");
   return {
     Records: [
       {
         cf: {
           request: {
-            uri: req.url,
+            uri,
+            querystring: query.join("?"),
             headers: Object.keys(req.headers).reduce((headers, key) => {
               headers[key] = Array.isArray(req.headers[key])
                 ? req.headers[key].map(value => ({ key, value }))

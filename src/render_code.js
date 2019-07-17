@@ -5,8 +5,9 @@ const response = require("./response");
 const { escapeHtml } = require("./utils");
 const styles = require("./code_styles");
 const scripts = require("./code_scripts");
+const { transformModuleSpecifier } = require("./transpile_code");
 
-module.exports = function renderCode(pathname, code, repo) {
+module.exports = function renderCode(pathname, code, repo, opts = {}) {
   const url = `https://deno.land${pathname}`;
 
   const escapedLines = escapeHtml(code)
@@ -59,6 +60,16 @@ module.exports = function renderCode(pathname, code, repo) {
       </head>
       <body>
         <a href="${repo}">View repository on GitHub</a>
+        <br /><br /><em>
+          ${pathname.endsWith(".ts")
+            ? opts.compiled
+              ? `This file has been compiled to JS. <a href="${url}">View the original version here</a>.`
+              : `deno.land can automatically transpile this file. <a href="${transformModuleSpecifier(
+                  pathname,
+                  pathname
+                )}">View the transpiled version</a>.`
+            : "deno.land can’t automatically transpile this file. If you think it should be able to, open an issue!"}
+        </em>
         <pre><code class="${path.extname(pathname).slice(1) ||
           "no-highlight"}">${lineNumberedCode}</code></pre>
         ${scripts}

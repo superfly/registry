@@ -2,7 +2,12 @@ const fetch = require("node-fetch");
 
 const response = require("./response");
 
-module.exports = async function render(request, pathname, { url, repo }) {
+module.exports = async function render(
+  request,
+  pathname,
+  query,
+  { url, repo }
+) {
   if (url.endsWith("/") || url.endsWith("/index.html")) {
     return require("./render_dir")(pathname, { url, repo });
   }
@@ -21,10 +26,23 @@ module.exports = async function render(request, pathname, { url, repo }) {
     return response.redirect(url);
   }
 
-  if (
+  const showHTMLVersion =
     request.headers.accept &&
-    request.headers.accept.some(header => header.value.includes("text/html"))
-  ) {
+    request.headers.accept.some(header => header.value.includes("text/html"));
+
+  const extension = pathname.split(".").slice(-1)[0];
+
+  if (extension === "ts" && {}.hasOwnProperty.call(query, "js")) {
+    const transpiled = require("./transpile_code")(pathname, content)
+      .outputText;
+    if (showHTMLVersion) {
+      return require("./render_code")(pathname, transpiled, repo, {
+        compiled: true
+      });
+    } else {
+      return response.success(transpiled, "application/javascript");
+    }
+  } else if (showHTMLVersion) {
     // Accept header present, this is a web browser, so display something
     // pretty.
     if (pathname.endsWith(".md")) {
