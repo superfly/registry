@@ -83,6 +83,10 @@
     "url": "https://raw.githubusercontent.com/syumai/denoget/${b}/",
     "repo": "https://github.com/syumai/denoget"
   },
+  "denofun": {
+    "url": "https://raw.githubusercontent.com/galkowskit/denofun/${b}/",
+    "repo": "https://github.com/galkowskit/denofun"
+  },
   "denoversion": {
     "url": "https://raw.githubusercontent.com/lucascaro/denoversion/${b}/",
     "repo": "https://github.com/lucascaro/denoversion"
