@@ -208,8 +208,8 @@
     "repo": "https://github.com/sholladay/pogo"
   },
   "postgres": {
-    "url": "https://raw.githubusercontent.com/bartlomieju/deno-postgres/${b}/",
-    "repo": "https://github.com/bartlomieju/deno-postgres"
+    "url": "https://raw.githubusercontent.com/buildondata/deno-postgres/${b}/",
+    "repo": "https://github.com/buildondata/deno-postgres"
   },
   "pretty_assert": {
     "url": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
