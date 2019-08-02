@@ -127,6 +127,10 @@
     "url": "https://raw.githubusercontent.com/Sab94/escape-string-regexp/${b}",
     "repo": "https://github.com/Sab94/escape-string-regexp"
   },
+  "event_emitter": {
+    "url": "https://raw.github.com/ozjd/deno_event_emitter/${b}/",
+    "repo": "https://github.com/ozjd/deno_event_emitter"
+  },
   "expect": {
     "url": "https://raw.githubusercontent.com/allain/expect/${b}/",
     "repo": "https://github.com/allain/expect"
