@@ -143,6 +143,10 @@
     "url": "https://raw.githubusercontent.com/fen-land/deno-fen/${b}/",
     "repo": "https://github.com/fen-land/deno-fen"
   },
+  "gardens": {
+    "url": "https://raw.githubusercontent.com/partheseas/gardens/${b}/",
+    "repo": "https://github.com/partheseas/gardens"
+  },
   "hmac": {
     "url": "https://raw.githubusercontent.com/chiefbiiko/hmac/${b}/",
     "repo": "https://github.com/chiefbiiko/hmac"
