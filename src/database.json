@@ -11,6 +11,10 @@
     "url": "https://raw.githubusercontent.com/irustm/alosaur/${b}/",
     "repo": "https://github.com/irustm/alosaur"
   },
+  "arkoren": {
+    "url": "https://raw.githubusercontent.com/arkoren/framework/${b}/",
+    "repo": "https://github.com/arkoren/framework"
+  },
   "base64": {
     "url": "https://raw.githubusercontent.com/chiefbiiko/base64/${b}/",
     "repo": "https://github.com/chiefbiiko/base64"
