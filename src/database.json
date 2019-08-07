@@ -119,6 +119,10 @@
     "url": "https://raw.githubusercontent.com/crookse/deno-drash/${b}/",
     "repo": "https://github.com/crookse/deno-drash"
   },
+  "dynamodb": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/dynamodb/${b}/",
+    "repo": "https://github.com/chiefbiiko/dynamodb"
+  },
   "eaisercolors": {
     "url": "https://raw.githubusercontent.com/herohamp/EaiserColors/${b}/",
     "repo": "https://github.com/herohamp/EaiserColors"
