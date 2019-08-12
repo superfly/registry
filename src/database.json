@@ -131,6 +131,10 @@
     "url": "https://raw.githubusercontent.com/zekth/deno_easypath/${b}/",
     "repo": "https://github.com/zekth/deno_easypath"
   },
+  "endianess": {
+    "url": "https://raw.github.com/denolibs/endianness/${b}/",
+    "repo": "https://github.com/denolibs/endianness"
+  },
   "escape_string_regexp": {
     "url": "https://raw.githubusercontent.com/Sab94/escape-string-regexp/${b}",
     "repo": "https://github.com/Sab94/escape-string-regexp"
