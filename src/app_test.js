@@ -5,7 +5,7 @@ exports.tests = async function tests() {
   const database = require("./database.json");
   // No dashes in the database.
   for (let key in database) {
-    assert(key.indexOf("-") < 0);
+    assert(key.indexOf("-") < 0, "Key names with dashes are not allowed");
   }
 
   assert.deepEqual(proxy("/x/install/foo/bar.js"), {
