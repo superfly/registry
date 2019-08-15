@@ -167,6 +167,10 @@
     "url": "https://raw.githubusercontent.com/krnik/jbq/${b}/",
     "repo": "https://github.com/krnik/jbq"
   },
+  "keycode": {
+    "url": "https://raw.githubusercontent.com/kabirbaidhya/keycode-js/${b}/",
+    "repo": "https://github.com/kabirbaidhya/keycode-js#usage-with-deno"
+  },
   "ky": {
     "url": "https://raw.githubusercontent.com/sindresorhus/ky/${b}/",
     "repo": "https://github.com/sindresorhus/ky"
