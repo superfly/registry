@@ -54,12 +54,14 @@ module.exports = function createStyle(maxNumberLength) {
       border-bottom-right-radius: var(--highlight-border-radius);
     }
     .numbered-line:target,
-    .numbered-line.highlighted {
+    .numbered-line.highlighted,
+    .definition:target {
       background: rgba(255, 225, 0, 0.33);
     }
     @media (prefers-color-scheme: dark) {
       .numbered-line:target,
-      .numbered-line.highlighted {
+      .numbered-line.highlighted,
+      .definition:target {
         background: rgba(255, 232, 63, 0.33);
       }
     }
@@ -74,6 +76,9 @@ module.exports = function createStyle(maxNumberLength) {
       width: ${maxNumberLength + 1}ex;
       text-align: right;
       opacity: 0.33;
+    }
+    .ref {
+      text-decoration-style: dotted;
     }
   `;
 };

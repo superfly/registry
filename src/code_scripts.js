@@ -7,33 +7,6 @@ const highlight = () => {
   } else {
     hljs.highlightBlock(code);
   }
-  for (const keyword of document.querySelectorAll(".hljs-keyword")) {
-    if (keyword.textContent !== "import" && keyword.textContent !== "export")
-      continue;
-    let source = keyword;
-    let line = keyword.parentNode;
-    while (source.className !== "hljs-string") {
-      // e.g. `export class`, `export const`
-      if (
-        source.className === "hljs-keyword" &&
-        !["import", "export", "default", "as", "from"].includes(
-          source.textContent
-        )
-      ) {
-        source = null;
-        break;
-      }
-      source = source.nextElementSibling;
-      while (!source) {
-        line = line.nextElementSibling;
-        // children[0] is the line number
-        source = line.children[1];
-      }
-    }
-    if (!source) continue;
-    if (source.children.length > 0) continue; // already linkified
-    source.innerHTML = `<a href=${source.textContent}>${source.innerHTML}</a>`;
-  }
 };
 
 const selection = () => {
@@ -59,19 +32,20 @@ const selection = () => {
     }
 
     const hash = parseHash();
-    if (!hash) return;
-    if (hash.type === "single") {
-      // ensure proper behavior on reload
-      document.getElementById("L" + hash.line).scrollIntoView();
-    } else if (hash.type === "range") {
-      for (let line = hash.start; line <= hash.end; line++) {
-        const el = document.getElementById("L" + line);
-        el.classList.add("highlighted");
-        if (line === hash.end) {
-          el.classList.add("last-highlight");
+    if (hash) {
+      if (hash.type === "single") {
+        // ensure proper behavior on reload
+        document.getElementById("L" + hash.line).scrollIntoView();
+      } else if (hash.type === "range") {
+        for (let line = hash.start; line <= hash.end; line++) {
+          const el = document.getElementById("L" + line);
+          el.classList.add("highlighted");
+          if (line === hash.end) {
+            el.classList.add("last-highlight");
+          }
         }
+        document.getElementById("L" + hash.start).scrollIntoView();
       }
-      document.getElementById("L" + hash.start).scrollIntoView();
     }
     document.body.scrollTop -= 19 * 3.5;
   };

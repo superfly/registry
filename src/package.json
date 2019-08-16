@@ -3,8 +3,8 @@
   "main": "app.js",
   "scripts": {
     "format": "prettier --write {**/,}*.{js,ts,json,md,yml}",
-    "start": "nodemon ./server.js",
-    "test": "node ./test.js",
+    "start": "nodemon server.js",
+    "test": "node test.js",
     "test-dev": "nodemon src/test.js"
   },
   "dependencies": {

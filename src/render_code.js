@@ -1,31 +1,25 @@
 const path = require("path");
-const linkify = require("linkify-lite");
 
 const response = require("./response");
 const { escapeHtml } = require("./utils");
 const styles = require("./code_styles");
 const scripts = require("./code_scripts");
 const { transformModuleSpecifier } = require("./transpile_code");
+const { annotate } = require("./analyze_code");
 
 module.exports = function renderCode(pathname, code, repo, opts = {}) {
   const url = `https://deno.land${pathname}`;
 
-  const escapedLines = escapeHtml(code)
-    .replace(/\s*$/, "")
-    .split(/\r|\n|\r\n/g);
+  const escapedLines = annotate(pathname, code).split("\n");
   const lineNumberedCode = escapedLines
     .map((content, i) => {
       const line = i + 1;
-      return /* HTML */ `<span
-        id="L${line}"
-        class="numbered-line${content ? "" : " empty"}"
-        ><a
-          href="#L${line}"
-          class="line-number"
-          data-line="${line}"
-        ></a
-        >${linkify(content)}</span
-      >`.replace(/\n\s+/g, " ");
+      return (
+        `<span id="L${line}" class="numbered-line${content ? "" : " empty"}">` +
+        `<a href="#L${line}" class="line-number" data-line="${line}"></a>` +
+        content +
+        `</span>`
+      );
     })
     .join("\n");
   const maxNumberLength = String(escapedLines.length).length;
@@ -59,8 +53,7 @@ module.exports = function renderCode(pathname, code, repo, opts = {}) {
         </style>
       </head>
       <body>
-        <a href="${repo}">View repository on GitHub</a>
-        <br /><br /><em>
+        <a href="${repo}">View repository on GitHub</a> <br /><br /><em>
           ${pathname.endsWith(".ts")
             ? opts.compiled
               ? `This file has been compiled to JS. <a href="${url}">View the original version here</a>.`
