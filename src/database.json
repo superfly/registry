@@ -67,6 +67,10 @@
     "url": "https://raw.githubusercontent.com/allain/deno-databatcher/${b}/",
     "repo": "https://github.com/allain/deno-databatcher"
   },
+  "date_fns": {
+    "url": "https://raw.githubusercontent.com/date-fns/date-fns/${b}/src/",
+    "repo": "https://github.com/date-fns/date-fns"
+  },
   "debuglog": {
     "url": "https://raw.githubusercontent.com/rista404/deno-debug/${b}/",
     "repo": "https://github.com/rista404/deno-debug"
