@@ -163,6 +163,10 @@
     "url": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
     "repo": "https://github.com/denoland/deno_install"
   },
+  "is": {
+    "url": "https://raw.githubusercontent.com/justjavac/deno-is/${b}/",
+    "repo": "https://github.com/justjavac/deno-is"
+  },
   "jbq": {
     "url": "https://raw.githubusercontent.com/krnik/jbq/${b}/",
     "repo": "https://github.com/krnik/jbq"
