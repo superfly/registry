@@ -79,6 +79,10 @@
     "url": "https://raw.githubusercontent.com/Sab94/dedupe/${b}/",
     "repo": "https://github.com/Sab94/dedupe"
   },
+  "dem": {
+    "url": "https://raw.githubusercontent.com/syumai/dem/${b}/",
+    "repo": "https://github.com/syumai/dem"
+  },
   "deno": {
     "url": "https://raw.githubusercontent.com/denoland/deno/${b}/",
     "repo": "https://github.com/denoland/deno"
