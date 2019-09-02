@@ -23,6 +23,10 @@
     "url": "https://raw.githubusercontent.com/chiefbiiko/blake2b/${b}/",
     "repo": "https://github.com/chiefbiiko/blake2b"
   },
+  "bwt": {
+    "url": "https://raw.githubusercontent.com/chiefbiiko/bwt/${b}/",
+    "repo": "https://github.com/chiefbiiko/bwt"
+  },
   "bytes_formater": {
     "url": "https://raw.githubusercontent.com/manyuanrong/bytes_formater/${b}/",
     "repo": "https://github.com/manyuanrong/bytes_formater"
