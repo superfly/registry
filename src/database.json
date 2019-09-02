@@ -211,6 +211,10 @@
     "url": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
     "repo": "https://github.com/chrisdothtml/deno-minimatch"
   },
+  "ms": {
+    "url": "https://raw.githubusercontent.com/denolib/ms/${b}/",
+    "repo": "https://github.com/denolib/ms"
+  },
   "mysql": {
     "url": "https://raw.githubusercontent.com/manyuanrong/deno_mysql/${b}/",
     "repo": "https://github.com/manyuanrong/deno_mysql"
