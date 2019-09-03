@@ -6,11 +6,15 @@ const styles = require("./code_styles");
 const scripts = require("./code_scripts");
 const { transformModuleSpecifier } = require("./transpile_code");
 const { annotate } = require("./analyze_code");
+const renderBreadcrumbs = require("./breadcrumbs");
 
-module.exports = function renderCode(pathname, code, repo, opts = {}) {
+module.exports = function renderCode(pathname, code, entry, opts = {}) {
   const url = `https://deno.land${pathname}`;
 
-  const escapedLines = annotate(pathname, code).split("\n");
+  const escapedLines =
+    pathname.endsWith(".ts") || pathname.endsWith(".js")
+      ? annotate(pathname, code).split("\n")
+      : code.split("\n");
   const lineNumberedCode = escapedLines
     .map((content, i) => {
       const line = i + 1;
@@ -53,16 +57,21 @@ module.exports = function renderCode(pathname, code, repo, opts = {}) {
         </style>
       </head>
       <body>
-        <a href="${repo}">View repository on GitHub</a> <br /><br /><em>
-          ${pathname.endsWith(".ts")
-            ? opts.compiled
-              ? `This file has been compiled to JS. <a href="${url}">View the original version here</a>.`
-              : `deno.land can automatically transpile this file. <a href="${transformModuleSpecifier(
-                  pathname,
-                  pathname
-                )}">View the transpiled version</a>.`
-            : "deno.land can’t automatically transpile this file. If you think it should be able to, open an issue!"}
-        </em>
+        <h1>
+          ${renderBreadcrumbs(pathname, entry)}
+        </h1>
+        <p>
+          <em>
+            ${pathname.endsWith(".ts")
+              ? opts.compiled
+                ? `This file has been compiled to JS. <a href="${url}">View the original version here</a>.`
+                : `deno.land can automatically transpile this file. <a href="${transformModuleSpecifier(
+                    pathname,
+                    pathname
+                  )}">View the transpiled version</a>.`
+              : "deno.land can’t automatically transpile this file. If you think it should be able to, open an issue!"}
+          </em>
+        </p>
         <pre><code class="${path.extname(pathname).slice(1) ||
           "no-highlight"}">${lineNumberedCode}</code></pre>
         ${scripts}

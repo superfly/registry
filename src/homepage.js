@@ -1,4 +1,5 @@
 const DATABASE = require("./database.json");
+const { getEntry } = require("./utils");
 
 const LOGO_PATH = "https://deno.land/images/deno_logo_4.gif";
 
@@ -70,11 +71,12 @@ const homepageHTML = /* HTML */ `
         <p>${Object.entries(DATABASE).length} third party modules:</p>
 
         <ul class="modules">
-          ${Object.entries(DATABASE)
-            .sort(([nameA], [nameB]) => nameA.localeCompare(nameB))
-            .map(([name, { repo }]) => {
-              const link = `https://deno.land/x/${name}/README.md`;
-              return `<li><a href="${link}">${name}</a></li>`;
+          ${Object.keys(DATABASE)
+            .sort((nameA, nameB) => nameA.localeCompare(nameB))
+            .map(name => {
+              const entry = getEntry(name);
+              const link = `https://deno.land/x/${name}/`;
+              return `<li><a href="${link}">${name}</a> (<a href="${entry.repo}">repo</a>)</li>`;
             })
             .join("\n")}
         </ul>

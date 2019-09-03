@@ -1,326 +1,410 @@
 {
   "abc": {
-    "url": "https://raw.githubusercontent.com/zhmushan/abc/${b}/",
-    "repo": "https://github.com/zhmushan/abc"
+    "type": "github",
+    "owner": "zhmushan",
+    "repo": "abc"
   },
   "aead_chacha20_poly1305": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/aead-chacha20-poly1305/${b}/",
-    "repo": "https://github.com/chiefbiiko/aead-chacha20-poly1305"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "aead-chacha20-poly1305"
   },
   "alosaur": {
-    "url": "https://raw.githubusercontent.com/irustm/alosaur/${b}/",
-    "repo": "https://github.com/irustm/alosaur"
+    "type": "github",
+    "owner": "irustm",
+    "repo": "alosaur"
   },
   "arkoren": {
-    "url": "https://raw.githubusercontent.com/arkoren/framework/${b}/",
-    "repo": "https://github.com/arkoren/framework"
+    "type": "github",
+    "owner": "arkoren",
+    "repo": "framework"
   },
   "base64": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/base64/${b}/",
-    "repo": "https://github.com/chiefbiiko/base64"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "base64"
   },
   "blake2b": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/blake2b/${b}/",
-    "repo": "https://github.com/chiefbiiko/blake2b"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "blake2b"
   },
   "bwt": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/bwt/${b}/",
-    "repo": "https://github.com/chiefbiiko/bwt"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "bwt"
   },
   "bytes_formater": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/bytes_formater/${b}/",
-    "repo": "https://github.com/manyuanrong/bytes_formater"
+    "type": "github",
+    "owner": "manyuanrong",
+    "repo": "bytes_formater"
   },
   "case": {
-    "url": "https://raw.githubusercontent.com/justjavac/deno-change-case/${b}/",
-    "repo": "https://github.com/justjavac/deno-change-case"
+    "type": "github",
+    "owner": "justjavac",
+    "repo": "deno-change-case"
   },
   "case_style": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_case_style/${b}/",
-    "repo": "https://github.com/zekth/deno_case_style"
+    "type": "github",
+    "owner": "zekth",
+    "repo": "deno_case_style"
   },
   "chunked": {
-    "url": "https://raw.githubusercontent.com/aynik/deno-chunked/${b}/",
-    "repo": "https://github.com/aynik/deno-chunked"
+    "type": "github",
+    "owner": "aynik",
+    "repo": "deno-chunked"
   },
   "ci": {
-    "url": "https://raw.githubusercontent.com/justjavac/deno-ci/${b}/",
-    "repo": "https://github.com/justjavac/deno-ci"
+    "type": "github",
+    "owner": "justjavac",
+    "repo": "deno-ci"
   },
   "cli_spinners": {
-    "url": "https://raw.githubusercontent.com/ameerthehacker/cli-spinners/${b}/",
-    "repo": "https://github.com/ameerthehacker/cli-spinners"
+    "type": "github",
+    "owner": "ameerthehacker",
+    "repo": "cli-spinners"
   },
   "clone": {
-    "url": "https://raw.githubusercontent.com/ekaragodin/clone/${b}/",
-    "repo": "https://github.com/ekaragodin/clone"
+    "type": "github",
+    "owner": "ekaragodin",
+    "repo": "clone"
   },
   "collections": {
-    "url": "https://raw.githubusercontent.com/hayd/deno-collections/${b}/",
-    "repo": "https://github.com/hayd/deno-collections"
+    "type": "github",
+    "owner": "hayd",
+    "repo": "deno-collections"
   },
   "core": {
-    "url": "https://raw.githubusercontent.com/denoland/deno/${b}/",
-    "repo": "https://github.com/denoland/deno"
+    "type": "github",
+    "owner": "denoland",
+    "repo": "deno"
   },
   "checksum": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/deno-checksum/${b}/",
-    "repo": "https://github.com/manyuanrong/deno-checksum"
+    "type": "github",
+    "owner": "manyuanrong",
+    "repo": "deno-checksum"
   },
   "databatcher": {
-    "url": "https://raw.githubusercontent.com/allain/deno-databatcher/${b}/",
-    "repo": "https://github.com/allain/deno-databatcher"
+    "type": "github",
+    "owner": "allain",
+    "repo": "deno-databatcher"
   },
   "date_fns": {
-    "url": "https://raw.githubusercontent.com/date-fns/date-fns/${b}/src/",
-    "repo": "https://github.com/date-fns/date-fns"
+    "type": "github",
+    "owner": "date-fns",
+    "repo": "date-fns",
+    "path": "src/"
   },
   "debuglog": {
-    "url": "https://raw.githubusercontent.com/rista404/deno-debug/${b}/",
-    "repo": "https://github.com/rista404/deno-debug"
+    "type": "github",
+    "owner": "rista404",
+    "repo": "deno-debug"
   },
   "dedupe": {
-    "url": "https://raw.githubusercontent.com/Sab94/dedupe/${b}/",
-    "repo": "https://github.com/Sab94/dedupe"
+    "type": "github",
+    "owner": "Sab94",
+    "repo": "dedupe"
   },
   "dem": {
-    "url": "https://raw.githubusercontent.com/syumai/dem/${b}/",
-    "repo": "https://github.com/syumai/dem"
+    "type": "github",
+    "owner": "syumai",
+    "repo": "dem"
   },
   "deno": {
-    "url": "https://raw.githubusercontent.com/denoland/deno/${b}/",
-    "repo": "https://github.com/denoland/deno"
+    "type": "github",
+    "owner": "denoland",
+    "repo": "deno"
   },
   "deno_init": {
-    "url": "https://raw.githubusercontent.com/maxuuell/deno_init/${b}/mod.ts",
-    "repo": "https://github.com/maxuuell/deno_init"
+    "type": "github",
+    "owner": "maxuuell",
+    "repo": "deno_init"
   },
   "denoget": {
-    "url": "https://raw.githubusercontent.com/syumai/denoget/${b}/",
-    "repo": "https://github.com/syumai/denoget"
+    "type": "github",
+    "owner": "syumai",
+    "repo": "denoget"
   },
   "denofun": {
-    "url": "https://raw.githubusercontent.com/galkowskit/denofun/${b}/",
-    "repo": "https://github.com/galkowskit/denofun"
+    "type": "github",
+    "owner": "galkowskit",
+    "repo": "denofun"
   },
   "denoversion": {
-    "url": "https://raw.githubusercontent.com/lucascaro/denoversion/${b}/",
-    "repo": "https://github.com/lucascaro/denoversion"
+    "type": "github",
+    "owner": "lucascaro",
+    "repo": "denoversion"
   },
   "dejs": {
-    "url": "https://raw.githubusercontent.com/syumai/dejs/${b}/",
-    "repo": "https://github.com/syumai/dejs"
+    "type": "github",
+    "owner": "syumai",
+    "repo": "dejs"
   },
   "dirname": {
-    "url": "https://raw.githubusercontent.com/rsp/deno-dirname/${b}/",
-    "repo": "https://github.com/rsp/deno-dirname"
+    "type": "github",
+    "owner": "rsp",
+    "repo": "deno-dirname"
   },
   "docable": {
-    "url": "https://raw.githubusercontent.com/crookse/docable/${b}/",
-    "repo": "https://github.com/crookse/docable"
+    "type": "github",
+    "owner": "crookse",
+    "repo": "docable"
   },
   "dso": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/dso/${b}/",
-    "repo": "https://github.com/manyuanrong/dso"
+    "type": "github",
+    "owner": "manyuanrong",
+    "repo": "dso"
   },
   "dotenv": {
-    "url": "https://raw.githubusercontent.com/pietvanzoen/deno-dotenv/${b}/",
-    "repo": "https://github.com/pietvanzoen/deno-dotenv"
+    "type": "github",
+    "owner": "pietvanzoen",
+    "repo": "deno-dotenv"
   },
   "drash": {
-    "url": "https://raw.githubusercontent.com/crookse/deno-drash/${b}/",
-    "repo": "https://github.com/crookse/deno-drash"
+    "type": "github",
+    "owner": "crookse",
+    "repo": "deno-drash"
   },
   "dynamodb": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/dynamodb/${b}/",
-    "repo": "https://github.com/chiefbiiko/dynamodb"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "dynamodb"
   },
   "eaisercolors": {
-    "url": "https://raw.githubusercontent.com/herohamp/EaiserColors/${b}/",
-    "repo": "https://github.com/herohamp/EaiserColors"
+    "type": "github",
+    "owner": "herohamp",
+    "repo": "EaiserColors"
   },
   "easypath": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_easypath/${b}/",
-    "repo": "https://github.com/zekth/deno_easypath"
+    "type": "github",
+    "owner": "zekth",
+    "repo": "deno_easypath"
   },
   "endianess": {
-    "url": "https://raw.github.com/denolibs/endianness/${b}/",
-    "repo": "https://github.com/denolibs/endianness"
+    "type": "github",
+    "owner": "denolibs",
+    "repo": "endianness"
   },
   "escape_string_regexp": {
-    "url": "https://raw.githubusercontent.com/Sab94/escape-string-regexp/${b}",
-    "repo": "https://github.com/Sab94/escape-string-regexp"
+    "type": "github",
+    "owner": "Sab94",
+    "repo": "escape-string-regexp"
   },
   "event_emitter": {
-    "url": "https://raw.github.com/ozjd/deno_event_emitter/${b}/",
-    "repo": "https://github.com/ozjd/deno_event_emitter"
+    "type": "github",
+    "owner": "ozjd",
+    "repo": "deno_event_emitter"
   },
   "expect": {
-    "url": "https://raw.githubusercontent.com/allain/expect/${b}/",
-    "repo": "https://github.com/allain/expect"
+    "type": "github",
+    "owner": "allain",
+    "repo": "expect"
   },
   "fen": {
-    "url": "https://raw.githubusercontent.com/fen-land/deno-fen/${b}/",
-    "repo": "https://github.com/fen-land/deno-fen"
+    "type": "github",
+    "owner": "fen-land",
+    "repo": "deno-fen"
   },
   "gardens": {
-    "url": "https://raw.githubusercontent.com/partheseas/gardens/${b}/",
-    "repo": "https://github.com/partheseas/gardens"
+    "type": "github",
+    "owner": "partheseas",
+    "repo": "gardens"
   },
   "hmac": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/hmac/${b}/",
-    "repo": "https://github.com/chiefbiiko/hmac"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "hmac"
   },
   "install": {
-    "url": "https://raw.githubusercontent.com/denoland/deno_install/${b}/",
-    "repo": "https://github.com/denoland/deno_install"
+    "type": "github",
+    "owner": "denoland",
+    "repo": "deno_install"
   },
   "is": {
-    "url": "https://raw.githubusercontent.com/justjavac/deno-is/${b}/",
-    "repo": "https://github.com/justjavac/deno-is"
+    "type": "github",
+    "owner": "justjavac",
+    "repo": "deno-is"
   },
   "jbq": {
-    "url": "https://raw.githubusercontent.com/krnik/jbq/${b}/",
-    "repo": "https://github.com/krnik/jbq"
+    "type": "github",
+    "owner": "krnik",
+    "repo": "jbq"
   },
   "keycode": {
-    "url": "https://raw.githubusercontent.com/kabirbaidhya/keycode-js/${b}/",
-    "repo": "https://github.com/kabirbaidhya/keycode-js#usage-with-deno"
+    "type": "github",
+    "owner": "kabirbaidhya",
+    "repo": "keycode-js"
   },
   "ky": {
-    "url": "https://raw.githubusercontent.com/sindresorhus/ky/${b}/",
-    "repo": "https://github.com/sindresorhus/ky"
+    "type": "github",
+    "owner": "sindresorhus",
+    "repo": "ky"
   },
   "lazy": {
-    "url": "https://raw.githubusercontent.com/luvies/lazy/${b}/lib/",
-    "repo": "https://github.com/luvies/lazy"
+    "type": "github",
+    "owner": "luvies",
+    "repo": "lazy",
+    "path": "lib/"
   },
   "license_checker": {
-    "url": "https://raw.githubusercontent.com/kt3k/deno_license_checker/${b}/",
-    "repo": "https://github.com/kt3k/deno_license_checker"
+    "type": "github",
+    "owner": "kt3k",
+    "repo": "deno_license_checker"
   },
   "lodash": {
-    "url": "https://raw.githubusercontent.com/lodash/lodash/${b}/",
-    "repo": "https://github.com/lodash/lodash"
+    "type": "github",
+    "owner": "lodash",
+    "repo": "lodash"
   },
   "math": {
-    "url": "https://raw.githubusercontent.com/axetroy/deno_math/${b}/",
-    "repo": "https://github.com/axetroy/deno_math"
+    "type": "github",
+    "owner": "axetroy",
+    "repo": "deno_math"
   },
   "moment": {
-    "url": "https://raw.githubusercontent.com/lisniuse/deno_moment/${b}/",
-    "repo": "https://github.com/lisniuse/deno_moment"
+    "type": "github",
+    "owner": "lisniuse",
+    "repo": "deno_moment"
   },
   "minimatch": {
-    "url": "https://raw.githubusercontent.com/chrisdothtml/deno-minimatch/${b}/",
-    "repo": "https://github.com/chrisdothtml/deno-minimatch"
+    "type": "github",
+    "owner": "chrisdothtml",
+    "repo": "deno-minimatch"
   },
   "ms": {
-    "url": "https://raw.githubusercontent.com/denolib/ms/${b}/",
-    "repo": "https://github.com/denolib/ms"
+    "type": "github",
+    "owner": "denolib",
+    "repo": "ms"
   },
   "mysql": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/deno_mysql/${b}/",
-    "repo": "https://github.com/manyuanrong/deno_mysql"
+    "type": "github",
+    "owner": "manyuanrong",
+    "repo": "deno_mysql"
   },
   "normalize_diacritics": {
-    "url": "https://raw.githubusercontent.com/motss/deno_mod/${b}/normalize_diacritics/",
-    "repo": "https://github.com/motss/deno_mod/tree/master/normalize_diacritics"
+    "type": "github",
+    "owner": "motss",
+    "repo": "deno_mod",
+    "path": "normalize_diacritics/"
   },
   "oak": {
-    "url": "https://raw.githubusercontent.com/oakserver/oak/${b}/",
-    "repo": "https://github.com/oakserver/oak"
+    "type": "github",
+    "owner": "oakserver",
+    "repo": "oak"
   },
   "panoptes": {
-    "url": "https://raw.githubusercontent.com/TokenChingy/panoptes/${b}/",
-    "repo": "https://github.com/TokenChingy/panoptes/"
+    "type": "github",
+    "owner": "TokenChingy",
+    "repo": "panoptes"
   },
   "parseargs": {
-    "url": "https://raw.githubusercontent.com/bartlomieju/parseargs/${b}/",
-    "repo": "https://github.com/bartlomieju/parseargs/"
+    "type": "github",
+    "owner": "bartlomieju",
+    "repo": "parseargs"
   },
   "pbkdf2": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/pbkdf2/${b}/",
-    "repo": "https://github.com/chiefbiiko/pbkdf2"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "pbkdf2"
   },
   "pipeline": {
-    "url": "https://raw.githubusercontent.com/Focinfi/deno-pipeline/${b}/",
-    "repo": "https://github.com/Focinfi/deno-pipeline"
+    "type": "github",
+    "owner": "Focinfi",
+    "repo": "deno-pipeline"
   },
   "pogo": {
-    "url": "https://raw.githubusercontent.com/sholladay/pogo/${b}/",
-    "repo": "https://github.com/sholladay/pogo"
+    "type": "github",
+    "owner": "sholladay",
+    "repo": "pogo"
   },
   "postgres": {
-    "url": "https://raw.githubusercontent.com/buildondata/deno-postgres/${b}/",
-    "repo": "https://github.com/buildondata/deno-postgres"
+    "type": "github",
+    "owner": "buildondata",
+    "repo": "deno-postgres"
   },
   "pretty_assert": {
-    "url": "https://raw.githubusercontent.com/bokuweb/deno-pretty-assert/${b}/",
-    "repo": "https://github.com/bokuweb/deno-pretty-assert"
+    "type": "github",
+    "owner": "bokuweb",
+    "repo": "deno-pretty-assert"
   },
   "purify": {
-    "url": "https://raw.githubusercontent.com/aynik/deno-purify/${b}/",
-    "repo": "https://github.com/aynik/deno-purify"
+    "type": "github",
+    "owner": "aynik",
+    "repo": "deno-purify"
   },
   "random_interval": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_random_interval/${b}/",
-    "repo": "https://github.com/zekth/deno_random_interval"
+    "type": "github",
+    "owner": "zekth",
+    "repo": "deno_random_interval"
   },
   "semver": {
-    "url": "https://raw.githubusercontent.com/justjavac/deno-semver/${b}/",
-    "repo": "https://github.com/justjavac/deno-semver"
+    "type": "github",
+    "owner": "justjavac",
+    "repo": "deno-semver"
   },
   "sha1": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/sha1/${b}/",
-    "repo": "https://github.com/chiefbiiko/sha1"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "sha1"
   },
   "sha256": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/sha256/${b}/",
-    "repo": "https://github.com/chiefbiiko/sha256"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "sha256"
   },
   "sha512": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/sha512/${b}/",
-    "repo": "https://github.com/chiefbiiko/sha512"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "sha512"
   },
   "siphash24": {
-    "url": "https://raw.githubusercontent.com/chiefbiiko/siphash24/${b}/",
-    "repo": "https://github.com/chiefbiiko/siphash24"
+    "type": "github",
+    "owner": "chiefbiiko",
+    "repo": "siphash24"
   },
   "slugify": {
-    "url": "https://raw.githubusercontent.com/jcardama/deno_slugify/${b}/",
-    "repo": "https://github.com/jcardama/deno_slugify"
+    "type": "github",
+    "owner": "jcardama",
+    "repo": "deno_slugify"
   },
   "smtp": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/deno-smtp/${b}/",
-    "repo": "https://github.com/manyuanrong/deno-smtp"
+    "type": "github",
+    "owner": "manyuanrong",
+    "repo": "deno-smtp"
   },
   "sql_builder": {
-    "url": "https://raw.githubusercontent.com/manyuanrong/sql-builder/${b}/",
-    "repo": "https://github.com/manyuanrong/sql-builder"
+    "type": "github",
+    "owner": "manyuanrong",
+    "repo": "sql-builder"
   },
   "std": {
-    "url": "https://raw.githubusercontent.com/denoland/deno_std/${b}/",
-    "repo": "https://github.com/denoland/deno_std"
+    "type": "github",
+    "owner": "denoland",
+    "repo": "deno_std"
   },
   "task_runner": {
-    "url": "https://raw.githubusercontent.com/jinjor/deno-task-runner/${b}/",
-    "repo": "https://github.com/jinjor/deno-task-runner"
+    "type": "github",
+    "owner": "jinjor",
+    "repo": "deno-task-runner"
   },
   "tiny_templates": {
-    "url": "https://raw.githubusercontent.com/zekth/deno_tiny_templates/${b}/",
-    "repo": "https://github.com/zekth/deno_tiny_templates"
+    "type": "github",
+    "owner": "zekth",
+    "repo": "deno_tiny_templates"
   },
   "uuid": {
-    "url": "https://raw.githubusercontent.com/lucascaro/deno-uuid/${b}/",
-    "repo": "https://github.com/lucascaro/deno-uuid"
+    "type": "github",
+    "owner": "lucascaro",
+    "repo": "deno-uuid"
   },
   "using": {
-    "url": "https://raw.githubusercontent.com/hayd/deno-using/${b}/",
-    "repo": "https://github.com/hayd/deno-using"
+    "type": "github",
+    "owner": "hayd",
+    "repo": "deno-using"
   },
   "watch": {
-    "url": "https://raw.githubusercontent.com/jinjor/deno-watch/${b}/",
-    "repo": "https://github.com/jinjor/deno-watch"
+    "type": "github",
+    "owner": "jinjor",
+    "repo": "deno-watch"
   }
 }

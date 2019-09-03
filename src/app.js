@@ -1,11 +1,10 @@
-// TODO Cron job to update the database with current values.
-const DATABASE = require("./database.json");
 const homepageHTML = require("./homepage");
 const { assert } = console;
 const qs = require("querystring");
 
 const response = require("./response");
 const renderPretty = require("./render");
+const { getEntry } = require("./utils");
 
 function proxy(pathname) {
   if (pathname.startsWith("/core") || pathname.startsWith("/std")) {
@@ -19,23 +18,15 @@ function proxy(pathname) {
   const rest = pathname.slice(i + 1);
   const nameBranch = pathname.slice(3, i);
   let [name, branch] = nameBranch.split("@", 2);
-  const urlPattern = DATABASE[name] ? DATABASE[name].url : null;
+  const entry = getEntry(name, branch);
 
-  if (!branch) {
-    branch = "master";
-  }
-
-  if (!urlPattern) {
+  if (!entry || !entry.url) {
     return null;
   }
 
-  const url = urlPattern.replace("${b}", branch);
-  assert(url.endsWith("/"));
+  assert(entry.url.endsWith("/"));
   assert(!rest.startsWith("/"));
-  return {
-    url: url + rest,
-    repo: DATABASE[name].repo
-  };
+  return { entry, path: rest };
 }
 exports.proxy = proxy;
 
@@ -45,12 +36,6 @@ exports.lambdaHandler = async function lambdaHandler(event, context, callback) {
   // console.log("context:", JSON.stringify(context, null, 2));
   const { request } = event.Records[0].cf;
 
-  const olduri = request.uri;
-  request.uri = olduri.replace(/\/$/, "/index.html");
-  if (olduri !== request.uri) {
-    console.log("rewrite uri", olduri, request.uri);
-  }
-
   const pathname = request.uri;
   // console.log("pathname", pathname);
 
@@ -58,13 +43,17 @@ exports.lambdaHandler = async function lambdaHandler(event, context, callback) {
     callback(null, response.success(homepageHTML));
     return;
   }
+  if (/^\/x\/[^/]+$/.exec(pathname)) {
+    callback(null, response.redirect(pathname + "/"));
+    return;
+  }
 
   const result = proxy(pathname);
   if (!result) {
+    request.uri = request.uri.replace(/\/$/, "/index.html");
     // Do not process if not in proxy. Forwards to deno.land s3 bucket.
     return callback(null, request);
   }
-  const { url, repo } = result;
 
   // URLs from error messages, i.e. https://deno.land/std/http/server.ts:10:24
   const lineAndColumnMatch = pathname.match(/:(\d+)(?::\d+)?$/);

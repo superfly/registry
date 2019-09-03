@@ -80,6 +80,17 @@ module.exports = function createStyle(maxNumberLength) {
     .ref {
       text-decoration-style: dotted;
     }
+    .breadcrumbs {
+      white-space: nowrap;
+    }
+    .subtle,
+    .slash {
+      opacity: 0.75;
+      font-weight: 300;
+    }
+    .slash {
+      padding: 0 0.25em;
+    }
   `;
 };
 module.exports.breakpoint = breakpoint;

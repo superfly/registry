@@ -9,14 +9,22 @@ exports.tests = async function tests() {
   }
 
   assert.deepEqual(proxy("/x/install/foo/bar.js"), {
-    url:
-      "https://raw.githubusercontent.com/denoland/deno_install/master/foo/bar.js",
-    repo: "https://github.com/denoland/deno_install"
+    entry: {
+      name: "install",
+      raw: { type: "github", owner: "denoland", repo: "deno_install" },
+      url: "https://raw.githubusercontent.com/denoland/deno_install/master/",
+      repo: "https://github.com/denoland/deno_install"
+    },
+    path: "foo/bar.js"
   });
   assert.deepEqual(proxy("/x/install@v0.1.2/foo/bar.js"), {
-    url:
-      "https://raw.githubusercontent.com/denoland/deno_install/v0.1.2/foo/bar.js",
-    repo: "https://github.com/denoland/deno_install"
+    entry: {
+      name: "install",
+      raw: { type: "github", owner: "denoland", repo: "deno_install" },
+      url: "https://raw.githubusercontent.com/denoland/deno_install/v0.1.2/",
+      repo: "https://github.com/denoland/deno_install"
+    },
+    path: "foo/bar.js"
   });
 
   let event = require("./testdata/req1.json");
@@ -64,7 +72,10 @@ exports.tests = async function tests() {
   event = require("./testdata/req8.json");
   await lambdaHandler(event, context, callback);
   assert.equal(counter, 8);
-  assert.equal(response.status, "501");
+  if (response.status !== "200") {
+    console.error(response.body);
+  }
+  assert.equal(response.status, "200");
 };
 
 require("./test_utils").runIfMain(module);
