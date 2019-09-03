@@ -3,7 +3,7 @@ const { Converter } = require("showdown");
 const response = require("./response");
 const { escapeHtml } = require("./utils");
 
-const converter = new Converter({ tables: true });
+const converter = new Converter({ emoji: true, tables: true });
 
 module.exports = function renderMarkdown(pathname, source, repo) {
   const url = `https://deno.land${pathname}`;
