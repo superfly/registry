@@ -3,3 +3,4 @@ packaged.yaml
 .aws-sam
 src/node_modules/
 .env
+.envrc
